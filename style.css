@@ -1,0 +1,62 @@
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Georgia, serif;
+  background: url("images/oak-grain.png") repeat center center fixed;
+  background-size: cover;
+  color: #f8f4ec;
+}
+
+/* Hero section stacks logo + intro */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;   /* top spacing from browser edge */
+  text-align: center;
+}
+
+/* Logo image */
+.hero-logo {
+  max-width: 600px;   /* adjust as needed */
+  width: 90%;
+  height: auto;
+  margin-bottom: 30px; /* space between logo and intro */
+  display: block;
+}
+
+/* Intro text */
+.intro h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,.7);
+}
+
+.intro p {
+  font-size: 1.25rem;
+  margin: 0;
+  opacity: 0.9;
+}
+/* About section */
+.about {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffb347; /* warm accent (gold-orange) */
+  text-shadow: 1px 1px 4px rgba(0,0,0,.6);
+}
+
+.about p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
