@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForKeepSakes • Halloween</title>
+  <meta name="description" content="Spooky season at ForKeepSakes — handmade decor, downloadable coloring pages, and DIY kits for Halloween." />
+  <meta name="theme-color" content="#0f0f10">
+  <style>
+    :root{
+      --ink:#0f0f10; /* near-black */
+      --paper:#111316; /* page bg */
+      --bone:#f7f2e9; /* light text */
+      --pumpkin:#ff7a1a; /* primary accent */
+      --violet:#7133ff;  /* secondary accent */
+      --slime:#2bd3b8;  /* Echo teal accent */
+      --card:#171a1e;  /* card bg */
+      --muted:#9aa3ad; /* muted text */
+      --ring: 0 0 0 3px rgba(255,122,26,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--paper);color:var(--bone);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;}
+    a{color:var(--slime);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1080px;margin-inline:auto;padding:24px}
+    header{position:relative;border-bottom:1px solid #24282e}
+    .topbar{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:12px;background:conic-gradient(from 200deg,var(--slime),var(--pumpkin),var(--violet),var(--slime));box-shadow:0 0 0 2px #111 inset}
+    .brand h1{font-size:18px;letter-spacing:.5px;margin:0}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--bone);opacity:.9}
+
+    /* HERO */
+    .hero{position:relative;border-radius:24px;overflow:hidden;margin:24px 0;background:#0a0b0d;min-height:260px;display:grid}
+    .hero::before{content:"";position:absolute;inset:-40px;filter:blur(16px);background:radial-gradient(600px 240px at 20% 30%,rgba(43,211,184,.25),transparent),radial-gradient(400px 200px at 85% 25%,rgba(255,122,26,.25),transparent),radial-gradient(500px 200px at 60% 85%,rgba(113,51,255,.22),transparent)}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;padding:28px}
+    .hero h2{font-size:42px;line-height:1.05;margin:0 0 8px 0;letter-spacing:.5px}
+    .hero p{margin:0;color:var(--muted)}
+    .hero-cta{display:flex;gap:12px;margin-top:16px}
+    .btn{appearance:none;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;background:var(--pumpkin);color:#140b06;box-shadow:0 6px 24px rgba(255,122,26,.18)}
+    .btn.alt{background:#1f2329;color:var(--bone);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+    .btn:focus{outline:none;box-shadow:var(--ring)}
+    .hero-art{position:relative;border-radius:18px;overflow:hidden;min-height:220px;background:linear-gradient(180deg,#101317, #08090c)}
+    .hero-art .moon{position:absolute;top:28px;right:28px;width:84px;height:84px;border-radius:50%;box-shadow:0 0 24px rgba(255,255,255,.2) inset,0 0 60px rgba(255,255,255,.12)}
+    .hero-art img{width:100%;height:100%;object-fit:cover;opacity:.4;mix-blend:screen}
+
+    /* SECTIONS */
+    section{margin:48px 0}
+    .section-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+    .section-hd h3{margin:0;font-size:24px}
+    .section-hd a{font-size:14px;color:var(--muted)}
+
+    /* GRID CARDS */
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:920px){.hero-inner{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid #22262c;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+    .card .media{height:180px;background:#0e1013;position:relative}
+    .card .media img{width:100%;height:100%;object-fit:cover}
+    .tag{position:absolute;top:10px;left:10px;background:rgba(15,16,19,.7);backdrop-filter:blur(2px);color:var(--bone);border:1px solid #272b31;padding:4px 8px;border-radius:999px;font-size:12px}
+    .card .body{padding:14px}
+    .card h4{margin:0 0 6px 0;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .pill{font-size:12px;border:1px dashed #2a2f36;border-radius:999px;padding:4px 8px;color:#b6bec8}
+    .actions{display:flex;gap:8px;margin-top:12px}
+
+    /* GALLERY */
+    .gallery{display:grid;gap:10px;grid-template-columns:repeat(12,1fr)}
+    .gallery figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid #23272d;background:#0d0f12;position:relative}
+    .gallery img{width:100%;height:100%;object-fit:cover}
+    .gallery figure:nth-child(1){grid-column:span 6}
+    .gallery figure:nth-child(2){grid-column:span 3}
+    .gallery figure:nth-child(3){grid-column:span 3}
+    .gallery figure:nth-child(4){grid-column:span 4}
+    .gallery figure:nth-child(5){grid-column:span 4}
+    .gallery figure:nth-child(6){grid-column:span 4}
+    @media (max-width:920px){.gallery{grid-template-columns:repeat(6,1fr)}.gallery figure{grid-column:span 3}}
+    @media (max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery figure{grid-column:span 2}}
+
+    /* FOOTER */
+    footer{border-top:1px solid #24282e;margin-top:48px;padding:24px 0;color:#b8c0c9;font-size:14px}
+    .crumbs{color:var(--muted);font-size:13px;margin-bottom:8px}
+
+    /* Utility */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .note{font-size:13px;color:#9aa3ad;margin-top:8px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;background:#1c2127;border:1px solid #2a2f36;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>ForKeepSakes</h1>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#kits">DIY Kits</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Breadcrumbs -->
+    <div class="crumbs">Home / Seasonal / <strong>Halloween</strong></div>
+
+    <!-- HERO -->
+    <section aria-labelledby="hero-title" class="hero">
+      <div class="hero-inner">
+        <div>
+          <h2 id="hero-title">Halloween at ForKeepSakes 🎃</h2>
+          <p>Handmade spooky decor, downloadable coloring pages, and DIY kits—crafted with care for cozy fall vibes.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#downloads">Browse Coloring Pages</a>
+            <a class="btn alt" href="#kits">See DIY Kits</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="moon"></div>
+          <!-- Optional: drop in a hero image of your work here -->
+          <img src="images/hero-halloween-placeholder.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED CARDS -->
+    <section aria-labelledby="featured-h3">
+      <div class="section-hd">
+        <h3 id="featured-h3">Featured This Season</h3>
+        <a href="#gallery">View gallery</a>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="media">
+            <span class="tag">NEW</span>
+            <img src="images/mini-picnic-halloween.jpg" alt="Mini picnic table with pumpkin theme"/>
+          </div>
+          <div class="body">
+            <h4>Mini Porch Picnic Table – Pumpkin Edition</h4>
+            <p>Autumn finish, carved pumpkin motif, sealed for outdoor display. Limited batch.</p>
+            <div class="pill-row">
+              <span class="pill">Handmade</span><span class="pill">Outdoor-safe</span><span class="pill">Limited</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contact">Request one</a>
+              <a class="btn alt" href="#gallery">More photos</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <span class="tag">DOWNLOAD</span>
+            <img src="images/coloring-preview-pumpkins.jpg" alt="Preview of pumpkin coloring pages"/>
+          </div>
+          <div class="body">
+            <h4>50-Page Pumpkin Coloring Pack</h4>
+            <p>High-contrast printable pages—pumpkins, bats, spooky houses, and graveyards.</p>
+            <div class="pill-row">
+              <span class="pill">PDF</span><span class="pill">8.5×11"</span><span class="pill">Instant</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#downloads">See pages</a>
+              <a class="btn alt" href="#contact">Custom request</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <span class="tag">KIT</span>
+            <img src="images/lantern-panels.jpg" alt="Scroll-saw lantern with Halloween panels"/>
+          </div>
+          <div class="body">
+            <h4>Scroll-Saw Lantern Panels (Halloween Set)</h4>
+            <p>Pre-sanded panels with themed inserts ready for scroll-saw work or stencil painting.</p>
+            <div class="pill-row">
+              <span class="pill">Beginner-friendly</span><span class="pill">Includes templates</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#kits">View kit options</a>
+              <a class="btn alt" href="#contact">Ask a question</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" aria-labelledby="downloads-h3">
+      <div class="section-hd">
+        <h3 id="downloads-h3">Downloads — Coloring Pages</h3>
+        <span class="note">Tip: Press <span class="kbd">Ctrl</span> + <span class="kbd">P</span> in your PDF viewer to print at full size.</span>
+      </div>
+      <div class="grid cols-2">
+        <article class="card">
+          <div class="media">
+            <img src="images/preview-5pack.jpg" alt="Five black & white pumpkin outlines preview"/>
+          </div>
+          <div class="body">
+            <h4>Free 5-Page Pumpkin Sampler</h4>
+            <p>Try-before-you-buy sampler — crisp outlines optimized for printing.</p>
+            <div class="pill-row"><span class="pill">Free</span><span class="pill">PNG & PDF</span></div>
+            <div class="actions">
+              <a class="btn" href="downloads/pumpkin-sampler.zip">Download</a>
+              <a class="btn alt" href="#gallery">Preview</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <img src="images/preview-50pack.jpg" alt="Collage of Halloween coloring pages"/>
+          </div>
+          <div class="body">
+            <h4>50-Page Halloween Mega Pack</h4>
+            <p>Pumpkins • Bats • Spooky Houses • Graveyards — clean outlines for all ages.</p>
+            <div class="pill-row"><span class="pill">PDF</span><span class="pill">8.5×11"</span><span class="pill">Instant</span></div>
+            <div class="actions">
+              <a class="btn" href="downloads/halloween-mega-pack.pdf">Get the Pack</a>
+              <a class="btn alt" href="#contact">License for classroom</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DIY KITS -->
+    <section id="kits" aria-labelledby="kits-h3">
+      <div class="section-hd">
+        <h3 id="kits-h3">DIY Kits</h3>
+        <a href="#contact">Custom sizes?</a>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="media">
+            <img src="images/kit-picnic.jpg" alt="DIY mini picnic table kit"/>
+          </div>
+          <div class="body">
+            <h4>Mini Picnic Table Kit (Pumpkin)</h4>
+            <p>Pre-cut pieces, hardware, and instructions. Finish it your way.</p>
+            <div class="pill-row"><span class="pill">Assembly: 60–90m</span><span class="pill">Beginner</span></div>
+            <div class="actions">
+              <a class="btn" href="#contact">Order</a>
+              <a class="btn alt" href="downloads/mini-picnic-instructions.pdf">View guide</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <img src="images/kit-lantern.jpg" alt="DIY lantern panels"/>
+          </div>
+          <div class="body">
+            <h4>Lantern Panel Kit (4 motifs)</h4>
+            <p>Panels + templates for scroll-saw or stencil finishing. Optional LED tea light.</p>
+            <div class="pill-row"><span class="pill">Intermediate</span><span class="pill">Templates</span></div>
+            <div class="actions">
+              <a class="btn" href="#contact">Order</a>
+              <a class="btn alt" href="downloads/lantern-panel-templates.pdf">Templates</a>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="media">
+            <img src="images/kit-sign.jpg" alt="DIY Halloween sign kit"/>
+          </div>
+          <div class="body">
+            <h4>Porch Sign Kit (Bats & Boo)</h4>
+            <p>Board, stencil, and mounting hardware — sized for most porch rails.</p>
+            <div class="pill-row"><span class="pill">Beginner</span><span class="pill">1–2 hrs</span></div>
+            <div class="actions">
+              <a class="btn" href="#contact">Order</a>
+              <a class="btn alt" href="downloads/porch-sign-guide.pdf">View guide</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" aria-labelledby="gallery-h3">
+      <div class="section-hd">
+        <h3 id="gallery-h3">Gallery</h3>
+        <a href="#contact">Request a custom build</a>
+      </div>
+      <div class="gallery" role="list">
+        <figure role="listitem">
+          <img src="images/gallery-1.jpg" alt="Handmade wooden lantern with pumpkin cutouts, glowing warm"/>
+        </figure>
+        <figure role="listitem">
+          <img src="images/gallery-2.jpg" alt="Pumpkin-themed mini picnic table on porch rail"/>
+        </figure>
+        <figure role="listitem">
+          <img src="images/gallery-3.jpg" alt="Black & white coloring page with jack-o'-lanterns and bats"/>
+        </figure>
+        <figure role="listitem">
+          <img src="images/gallery-4.jpg" alt="Graveyard silhouette sign with moon backdrop"/>
+        </figure>
+        <figure role="listitem">
+          <img src="images/gallery-5.jpg" alt="Stack of printed coloring pages ready for kids"/>
+        </figure>
+        <figure role="listitem">
+          <img src="images/gallery-6.jpg" alt="Workshop shot with lantern panels and tools"/>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact" aria-labelledby="contact-h3">
+      <div class="section-hd">
+        <h3 id="contact-h3">Questions or custom requests?</h3>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <div class="body">
+            <h4>Message ForKeepSakes</h4>
+            <p>Tell me what you’re imagining—size, finish, deadline—and I’ll reply with options and pricing.</p>
+            <div class="actions">
+              <a class="btn" href="mailto:forkeepsakesfks@gmail.com?subject=ForKeepSakes%20Halloween%20Inquiry">Email Me</a>
+              <a class="btn alt" href="/">Back to Home</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="body">
+            <h4>Creator Kits & Partnerships</h4>
+            <p>Interested in creator bundles or classroom licenses for coloring pages? I can set that up.</p>
+            <div class="actions">
+              <a class="btn" href="#kits">View Kits</a>
+              <a class="btn alt" href="#downloads">Downloads</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div>© <span id="y"></span> ForKeepSakes • Always Forward</div>
+    <div class="note">Images are placeholders — swap with your photos in the <code>/images</code> folder and update the file names.</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

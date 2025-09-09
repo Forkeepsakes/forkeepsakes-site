@@ -20,8 +20,8 @@ html, body {
 
 /* Logo image */
 .hero-logo {
-  max-width: 600px;   /* adjust as needed */
-  width: 90%;
+  max-width: 500px;   /* adjust as needed */
+  width: 100%;
   height: auto;
   margin-bottom: 30px; /* space between logo and intro */
   display: block;
