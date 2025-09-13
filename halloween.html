@@ -1,89 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Halloween - ForKeepSakes</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #2b1d0e; /* deep brown background */
-      color: #fff8e7; /* warm off-white text */
-      padding-top: 80px; /* space for fixed header */
+    /* ===== THEME COLORS ===== */
+    :root{
+      --bg-brown:#3a240f;         /* deep brown */
+      --bg-brown-mid:#5a2f0f;     /* mid brown */
+      --bg-orange:#c25a12;        /* warm orange */
+      --text:#fff8e7;             /* warm off-white */
+      --orange:#ff7a1a;           /* pumpkin orange */
+      --harvest-red:#d33a2c;      /* button hover */
+      --gold:#ffb347;             /* headings */
     }
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px 20px;
-      background: #4a2c0a; /* rich brown header */
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    /* Base layout */
+    html,body{margin:0}
+    body{
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      /* Warm fall gradient background */
+      background:
+        linear-gradient(180deg, var(--bg-brown) 0%, var(--bg-brown-mid) 45%, var(--bg-orange) 100%);
+      min-height:100dvh;
+      padding-top:80px; /* space for fixed header */
+      position:relative;
+      overflow-x:hidden;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    /* Top header/nav */
+    header{
+      position:fixed; top:0; left:0; width:100%;
+      padding:10px 20px;
+      background:rgba(0,0,0,.75);
+      backdrop-filter: blur(6px);
+      z-index:1000;
+      box-shadow:0 2px 6px rgba(0,0,0,.35);
     }
+    nav{display:flex; align-items:center; gap:20px}
+    nav a{color:var(--text); text-decoration:none; font-weight:bold; transition:opacity .2s}
+    nav a:hover{opacity:.85}
+    nav a.active{color:var(--orange)}
+    .logo{height:50px; display:block}
 
-    nav a {
-      color: #fff8e7;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+    /* Decorative background layer (subtle silhouettes) */
+    .bg-decor{
+      position:fixed; inset:0;
+      z-index:0; pointer-events:none;
+      opacity:.12; /* keep it subtle */
+      background-image:
+        radial-gradient(220px 180px at 15% 18%, rgba(255,179,71,.55), transparent 60%),
+        radial-gradient(280px 220px at 85% 12%, rgba(255,122,26,.45), transparent 65%),
+        radial-gradient(240px 200px at 80% 78%, rgba(211,58,44,.35), transparent 60%),
+        radial-gradient(180px 160px at 22% 78%, rgba(255,255,255,.18), transparent 60%);
+      background-repeat:no-repeat;
+      background-size:auto;
+      background-blend-mode:overlay;
     }
+    /* OPTIONAL: if you add actual decoration PNG/SVGs later, uncomment and update paths:
+      .bg-decor{
+        background-image:
+          url('images/decor-pumpkins.png'),
+          url('images/decor-leaves.png'),
+          url('images/decor-bats.png'),
+          linear-gradient(180deg, var(--bg-brown) 0%, var(--bg-brown-mid) 45%, var(--bg-orange) 100%);
+        background-position: 5% 10%, 90% 20%, 80% 85%, 0 0;
+        background-size: 320px auto, 280px auto, 220px auto, cover;
+        background-repeat:no-repeat, no-repeat, no-repeat, no-repeat;
+        opacity:.14;
+      }
+    */
 
-    nav a:hover {
-      color: #ff7518; /* pumpkin orange hover */
-    }
+    /* Main section */
+    section{text-align:center; padding:48px 20px; position:relative; z-index:1}
+    h1{color:var(--gold); margin:0 0 10px}
+    p{margin:0 0 18px}
 
-    nav a.active {
-      color: #ff7518; /* highlight Halloween link */
+    .btn{
+      background-color:var(--orange);
+      color:var(--text);
+      border:none;
+      padding:12px 24px;
+      margin:10px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background-color .25s, transform .1s;
+      display:inline-block;
+      text-decoration:none;
+      box-shadow:0 8px 22px rgba(0,0,0,.25);
     }
-
-    .btn {
-      background-color: #ff7518; /* pumpkin orange */
-      color: #fff8e7;
-      border: none;
-      padding: 12px 24px;
-      margin: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background-color: #d62828; /* harvest red */
-    }
-
-    section {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    h1, h2 {
-      color: #ffb347; /* golden yellow/orange headers */
-    }
+    .btn:hover{background-color:var(--harvest-red)}
+    .btn:active{transform:translateY(1px)}
   </style>
 </head>
 <body>
+
+  <!-- subtle decorative backdrop -->
+  <div class="bg-decor" aria-hidden="true"></div>
 
   <!-- Header with Logo -->
   <header>
     <nav>
       <!-- Logo -->
-      <a href="index.html">
-        <img src="images/FKS-logo.png" alt="ForKeepSakes logo" style="height:50px;">
+      <a href="index.html" aria-label="ForKeepSakes Home">
+        <img src="images/FKS-logo.png" alt="ForKeepSakes logo" class="logo">
       </a>
 
-      <!-- Nav Links -->
+      <!-- Links -->
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="halloween.html" class="active">Halloween 🎃</a>
