@@ -129,3 +129,30 @@
 </section>
 </body>
 </html>
+<section class="sample-preview">
+  <h2>Coloring Pages Sampler</h2>
+
+  <!-- Cover thumbnail -->
+  <img src="images/halloween_sampler_cover.jpg" 
+       alt="Sampler Cover" 
+       class="cover-thumb" 
+       id="openModal">
+
+  <div class="sample-actions">
+    <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
+      <button>Open Full Preview</button>
+    </a>
+    <a href="downloads/halloween_sampler_complete.pdf" download>
+      <button>Download Sampler</button>
+    </a>
+  </div>
+</section>
+
+<!-- Lightbox modal -->
+<div class="modal" id="coverModal" aria-hidden="true">
+  <div class="modal-backdrop" id="closeModal"></div>
+  <div class="modal-content">
+    <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
+    <button class="modal-close" id="closeModalBtn">×</button>
+  </div>
+</div>
