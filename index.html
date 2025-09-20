@@ -26,22 +26,24 @@
 
 <header style="position:fixed; top:0; left:0; width:100%;
                padding:10px 20px; background:#111; z-index:1000;">
-  <nav class="nav" aria-label="Main">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
+  <nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li class="dropdown">
+      <a href="#">Seasonal ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="halloween.html">Halloween</a></li>
+        <li><a href="christmas.html">Christmas</a></li>
+        <li><a href="valentines.html">Valentine's Day</a></li>
+        <li><a href="mothersday.html">Mother's Day</a></li>
+        <li><a href="easter.html">Easter</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="seasonal">
-      <a href="halloween.html" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
-      <div class="menu" role="menu" aria-label="Seasonal links">
-        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
-        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
-        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
-        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
-        <a href="easter.html" role="menuitem">Easter 🐣</a>
-        <!-- add more anytime -->
-      </div>
-    </div>
-  </nav>
 </header>
 
 
