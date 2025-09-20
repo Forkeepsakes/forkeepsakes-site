@@ -8,30 +8,27 @@
   <style>
     /* ===== THEME COLORS ===== */
     :root{
-      --bg-brown:#3a240f;         /* deep brown */
-      --bg-brown-mid:#5a2f0f;     /* mid brown */
-      --bg-orange:#c25a12;        /* warm orange */
-      --text:#fff8e7;             /* warm off-white */
-      --orange:#ff7a1a;           /* pumpkin orange */
-      --harvest-red:#d33a2c;      /* button hover */
-      --gold:#ffb347;             /* headings */
+      --bg-brown:#3a240f;
+      --bg-brown-mid:#5a2f0f;
+      --bg-orange:#c25a12;
+      --text:#fff8e7;
+      --orange:#ff7a1a;
+      --harvest-red:#d33a2c;
+      --gold:#ffb347;
     }
 
-    /* Base layout */
     html,body{margin:0}
     body{
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color:var(--text);
-      /* Warm fall gradient background */
       background:
         linear-gradient(180deg, var(--bg-brown) 0%, var(--bg-brown-mid) 45%, var(--bg-orange) 100%);
       min-height:100dvh;
-      padding-top:80px; /* space for fixed header */
+      padding-top:80px;
       position:relative;
       overflow-x:hidden;
     }
 
-    /* Top header/nav */
     header{
       position:fixed; top:0; left:0; width:100%;
       padding:10px 20px;
@@ -46,11 +43,10 @@
     nav a.active{color:var(--orange)}
     .logo{height:50px; display:block}
 
-    /* Decorative background layer (subtle silhouettes) */
     .bg-decor{
       position:fixed; inset:0;
       z-index:0; pointer-events:none;
-      opacity:.12; /* keep it subtle */
+      opacity:.12;
       background-image:
         radial-gradient(220px 180px at 15% 18%, rgba(255,179,71,.55), transparent 60%),
         radial-gradient(280px 220px at 85% 12%, rgba(255,122,26,.45), transparent 65%),
@@ -60,24 +56,10 @@
       background-size:auto;
       background-blend-mode:overlay;
     }
-    /* OPTIONAL: if you add actual decoration PNG/SVGs later, uncomment and update paths:
-      .bg-decor{
-        background-image:
-          url('images/decor-pumpkins.png'),
-          url('images/decor-leaves.png'),
-          url('images/decor-bats.png'),
-          linear-gradient(180deg, var(--bg-brown) 0%, var(--bg-brown-mid) 45%, var(--bg-orange) 100%);
-        background-position: 5% 10%, 90% 20%, 80% 85%, 0 0;
-        background-size: 320px auto, 280px auto, 220px auto, cover;
-        background-repeat:no-repeat, no-repeat, no-repeat, no-repeat;
-        opacity:.14;
-      }
-    */
 
-    /* Main section */
-    section{text-align:center; padding:48px 20px; position:relative; z-index:1}
-    h1{color:var(--gold); margin:0 0 10px}
-    p{margin:0 0 18px}
+    section{ text-align:center; padding:48px 20px; position:relative; z-index:1 }
+    h1{ color:var(--gold); margin:0 0 10px }
+    p{ margin:0 0 18px }
 
     .btn{
       background-color:var(--orange);
@@ -93,63 +75,115 @@
       text-decoration:none;
       box-shadow:0 8px 22px rgba(0,0,0,.25);
     }
-    .btn:hover{background-color:var(--harvest-red)}
-    .btn:active{transform:translateY(1px)}
+    .btn:hover{ background-color:var(--harvest-red) }
+    .btn:active{ transform:translateY(1px) }
+
+    /* ======================
+       SAMPLER PREVIEW STYLES
+    =======================*/
+    .sample-preview { margin: 16px auto 40px; max-width: 720px; }
+    .sampler-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .cover-thumb{
+      max-width:120px; border-radius:6px; cursor:pointer;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      transition: transform .2s;
+    }
+    .cover-thumb:hover{ transform: scale(1.05); }
+
+    .sample-actions{
+      display:flex; flex-direction:column; gap:.5rem;
+      align-items:flex-start;
+    }
+    .sample-actions button{
+      padding:.5rem 1rem; cursor:pointer; border-radius:4px; border:none;
+      background:#333; color:#fff; transition: background .2s;
+    }
+    .sample-actions button:hover{ background:#555; }
+
+    /* Modal hidden by default */
+    .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
+    .modal.show { display: block; }
+    .modal-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.6); }
+    .modal-content{
+      position: relative; margin: 5vh auto; max-width: 90vw; max-height: 90vh;
+      background:#000; padding:.5rem; border-radius:12px;
+      display:flex; justify-content:center; align-items:center;
+    }
+    .modal-content img{ max-width:100%; max-height:85vh; display:block; }
+    .modal-close{
+      position:absolute; top:6px; right:8px; border:0; background:#fff;
+      width:32px; height:32px; border-radius:50%; font-size:20px; cursor:pointer;
+    }
   </style>
 </head>
 <body>
 
-  <!-- subtle decorative backdrop -->
   <div class="bg-decor" aria-hidden="true"></div>
 
-  <!-- Header with Logo -->
   <header>
     <nav>
-      <!-- Logo -->
       <a href="index.html" aria-label="ForKeepSakes Home">
         <img src="images/FKS-logo.png" alt="ForKeepSakes logo" class="logo">
       </a>
-
-      <!-- Links -->
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="halloween.html" class="active">Halloween 🎃</a>
+      <!-- Add your Seasonal dropdown + Contact here when ready -->
     </nav>
   </header>
 
-  <!-- Main Halloween Content -->
+  <!-- Main content -->
   <section>
-    <section>
-  <h1>Happy Halloween!</h1>
-  <p>Enjoy our seasonal content and free downloads below.</p>
+    <h1>Happy Halloween!</h1>
+    <p>Enjoy our seasonal content and free downloads below.</p>
 
-  
-</section>
-</body>
-</html>
-<section class="sample-preview">
-  <div class="sampler-box">
-    <img src="images/halloween_sampler_cover.jpg"
-         alt="Sampler Cover"
-         class="cover-thumb"
-         id="openModal"
-         style="width:120px;height:auto;">
-    <div class="sample-actions">
-      <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
-        <button>Preview</button>
-      </a>
-      <a href="downloads/halloween_sampler_complete.pdf" download>
-        <button>Download</button>
-      </a>
+    <!-- Sampler preview (thumbnail + buttons) -->
+    <div class="sample-preview">
+      <div class="sampler-box">
+        <img src="images/halloween_sampler_cover.jpg"
+             alt="Sampler Cover"
+             class="cover-thumb"
+             id="openModal">
+        <div class="sample-actions">
+          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
+            <button>Preview</button>
+          </a>
+          <a href="downloads/halloween_sampler_complete.pdf" download>
+            <button>Download</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal kept INSIDE the body, hidden by default -->
+  <div class="modal" id="coverModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeModal"></div>
+    <div class="modal-content">
+      <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
+      <button class="modal-close" id="closeModalBtn">×</button>
     </div>
   </div>
-</section>
 
-<!-- Modal lives OUTSIDE the section -->
-<div class="modal" id="coverModal" aria-hidden="true">
-  <div class="modal-backdrop" id="closeModal"></div>
-  <div class="modal-content">
-    <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
-    <button class="modal-close" id="closeModalBtn">×</button>
-  </div>
-</div>
+  <!-- JS toggles the modal -->
+  <script>
+    const open = document.getElementById('openModal');
+    const modal = document.getElementById('coverModal');
+    const closeBackdrop = document.getElementById('closeModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    function show() { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
+    function hide() { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
+
+    open?.addEventListener('click', show);
+    closeBackdrop?.addEventListener('click', hide);
+    closeBtn?.addEventListener('click', hide);
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  </script>
+</body>
+</html>
