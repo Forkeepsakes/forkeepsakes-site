@@ -132,13 +132,15 @@
   <p>Enjoy our seasonal content and free downloads below.</p>
 
   <div class="sampler-box">
-    <!-- Small thumbnail -->
-    <img src="images/halloween_sampler_cover.jpg" 
-         alt="Sampler Cover" 
-         class="cover-thumb" 
-         id="openModal">
+    <!-- SINGLE thumbnail -->
+    <img
+      src="images/halloween_sampler_cover.jpg"
+      alt="Sampler Cover"
+      class="cover-thumb"
+      id="openModal"
+      style="width:120px; height:auto;"  <!-- safety sizing -->
+    >
 
-    <!-- Actions under thumbnail -->
     <div class="sample-actions">
       <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
         <button>Preview</button>
@@ -150,7 +152,7 @@
   </div>
 </section>
 
-<!-- Lightbox modal for larger view -->
+<!-- Hidden modal (SECOND image lives here only) -->
 <div class="modal" id="coverModal" aria-hidden="true">
   <div class="modal-backdrop" id="closeModal"></div>
   <div class="modal-content">
@@ -158,4 +160,5 @@
     <button class="modal-close" id="closeModalBtn">×</button>
   </div>
 </div>
+
 
