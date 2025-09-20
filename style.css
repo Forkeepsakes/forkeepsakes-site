@@ -122,3 +122,64 @@ html, body {
   font-weight: bold;
   text-decoration: underline;
 }
+.sample-preview { margin: 2rem 0; text-align: center; }
+
+.cover-thumb {
+  max-width: 280px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+.cover-thumb:hover { transform: scale(1.05); }
+
+.sample-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.sample-actions button {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: #fff;
+  transition: background 0.2s;
+}
+.sample-actions button:hover {
+  background: #555;
+}
+
+/* Modal base */
+.modal { position: fixed; inset: 0; display: none; z-index: 2000; }
+.modal.show { display: block; }
+.modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  position: relative;
+  margin: 5vh auto;
+  max-width: 90vw; max-height: 90vh;
+  background: #000;
+  padding: 0.5rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content img {
+  max-width: 100%; max-height: 85vh; display: block;
+}
+.modal-close {
+  position: absolute;
+  top: 6px; right: 8px;
+  border: 0;
+  background: #fff;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
