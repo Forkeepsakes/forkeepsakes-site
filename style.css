@@ -60,3 +60,65 @@ html, body {
   margin-bottom: 20px;
   text-shadow: 1px 1px 3px rgba(0,0,0,.5);
 }
+/* -------------------------
+   NAVIGATION BAR STYLES
+------------------------- */
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #000;       /* optional: set a background color */
+  padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link a {
+  color: #fff;            /* link color */
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+}
+
+.navbar .nav-link a:hover {
+  background: rgba(255,255,255,0.1); /* hover effect */
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  background: #111;
+  border: 1px solid #444;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Active page helper */
+.navbar a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
