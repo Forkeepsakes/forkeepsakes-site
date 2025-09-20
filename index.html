@@ -26,24 +26,22 @@
 
 <header style="position:fixed; top:0; left:0; width:100%;
                padding:10px 20px; background:#111; z-index:1000;">
-  <nav class="navbar">
-  <div class="nav-link"><a href="index.html">Home</a></div>
-  <div class="nav-link"><a href="gallery.html">Gallery</a></div>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
 
-  <div class="nav-link dropdown">
-    <a href="#" class="dropdown-toggle">Seasonal ▾</a>
-    <div class="dropdown-content">
-      <a href="halloween.html">Halloween</a>
-      <a href="christmas.html">Christmas</a>
-      <a href="valentines.html">Valentine's Day</a>
-      <a href="mothersday.html">Mother's Day</a>
-      <a href="easter.html">Easter</a>
+    <div class="seasonal">
+      <a href="halloween.html" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+      <div class="menu" role="menu" aria-label="Seasonal links">
+        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+        <a href="easter.html" role="menuitem">Easter 🐣</a>
+        <!-- add more anytime -->
+      </div>
     </div>
-  </div>
-
-  <div class="nav-link"><a href="contact.html">Contact</a></div>
-</nav>
-
+  </nav>
 </header>
 
 
