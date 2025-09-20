@@ -122,35 +122,40 @@ html, body {
   font-weight: bold;
   text-decoration: underline;
 }
-.sample-preview { margin: 2rem 0; text-align: center; }
+.sample-preview { margin: 2rem 0; }
+
+.sampler-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
 
 .cover-thumb {
-  max-width: 280px;
-  border-radius: 10px;
+  max-width: 120px;      /* smaller thumbnail */
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.2s;
 }
 .cover-thumb:hover { transform: scale(1.05); }
 
 .sample-actions {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .sample-actions button {
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 4px;
   border: none;
   background: #333;
   color: #fff;
   transition: background 0.2s;
 }
-.sample-actions button:hover {
-  background: #555;
-}
+.sample-actions button:hover { background: #555; }
+
 
 /* Modal base */
 .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
