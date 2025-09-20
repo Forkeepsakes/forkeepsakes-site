@@ -128,25 +128,29 @@
 </body>
 </html>
 <section class="sample-preview">
-  <h2>Coloring Pages Sampler</h2>
+  <h2>Happy Halloween!</h2>
+  <p>Enjoy our seasonal content and free downloads below.</p>
 
-  <!-- Cover thumbnail -->
-  <img src="images/halloween_sampler_cover.jpg" 
-       alt="Sampler Cover" 
-       class="cover-thumb" 
-       id="openModal">
+  <div class="sampler-box">
+    <!-- Small thumbnail -->
+    <img src="images/halloween_sampler_cover.jpg" 
+         alt="Sampler Cover" 
+         class="cover-thumb" 
+         id="openModal">
 
-  <div class="sample-actions">
-    <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
-      <button>Open Full Preview</button>
-    </a>
-    <a href="downloads/halloween_sampler_complete.pdf" download>
-      <button>Download Sampler</button>
-    </a>
+    <!-- Actions under thumbnail -->
+    <div class="sample-actions">
+      <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
+        <button>Preview</button>
+      </a>
+      <a href="downloads/halloween_sampler_complete.pdf" download>
+        <button>Download</button>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- Lightbox modal -->
+<!-- Lightbox modal for larger view -->
 <div class="modal" id="coverModal" aria-hidden="true">
   <div class="modal-backdrop" id="closeModal"></div>
   <div class="modal-content">
@@ -154,3 +158,4 @@
     <button class="modal-close" id="closeModalBtn">×</button>
   </div>
 </div>
+
