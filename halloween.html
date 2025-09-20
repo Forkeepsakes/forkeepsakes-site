@@ -129,16 +129,11 @@
 </html>
 <section class="sample-preview">
   <div class="sampler-box">
-    <!-- Thumbnail -->
-    <img
-      src="images/halloween_sampler_cover.jpg"
-      alt="Sampler Cover"
-      class="cover-thumb"
-      id="openModal"
-      style="width:120px; height:auto;"
-    >
-
-    <!-- Actions under thumbnail -->
+    <img src="images/halloween_sampler_cover.jpg"
+         alt="Sampler Cover"
+         class="cover-thumb"
+         id="openModal"
+         style="width:120px;height:auto;">
     <div class="sample-actions">
       <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
         <button>Preview</button>
@@ -150,7 +145,7 @@
   </div>
 </section>
 
-<!-- Modal for larger view -->
+<!-- Modal lives OUTSIDE the section -->
 <div class="modal" id="coverModal" aria-hidden="true">
   <div class="modal-backdrop" id="closeModal"></div>
   <div class="modal-content">
@@ -158,5 +153,3 @@
     <button class="modal-close" id="closeModalBtn">×</button>
   </div>
 </div>
-
-
