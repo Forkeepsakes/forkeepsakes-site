@@ -201,3 +201,30 @@ header {
 .intro p { margin: 0.25rem 0 0; opacity: 0.9; }
 
 .about { max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.65; }
+/* --- Mobile fixes --- */
+* { box-sizing: border-box; }
+html, body { overflow-x: hidden; }          /* stop horizontal scrolling */
+img { max-width: 100%; height: auto; }      /* images scale on small screens */
+
+/* Base type: keep text readable on phones */
+body { line-height: 1.6; font-size: 16px; }
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  header { padding: 8px 12px; }
+  .nav { gap: 12px; flex-wrap: wrap; }      /* allow nav to wrap instead of forcing width */
+  body { padding-top: 56px; }               /* fixed header height tweak */
+
+  .hero { min-height: auto; padding: 1rem 0.5rem; }
+  .hero img { max-width: 90vw; }            /* logo fits screen */
+
+  .intro h1 { font-size: 1.75rem; margin: 0.5rem 0 0.25rem; }
+  .intro p  { font-size: 1rem; }
+
+  .about { max-width: 90vw; margin: 1.25rem auto; }
+}
+
+/* Optional: slightly larger text on very small phones */
+@media (max-width: 380px) {
+  body { font-size: 17px; }
+}
