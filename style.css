@@ -160,12 +160,16 @@ button { font: inherit; }
 }
 
 /* Fixed header spacing so content isn't hidden */
-body {
+
+ body {
   margin: 0;
   color: var(--text);
-  background: var(--bg);
-  padding-top: 60px; /* match header height */
+  font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: url("images/oak-grain.png") repeat center center fixed;
+  background-size: cover;
+  padding-top: 60px; /* clears the fixed header */
 }
+
 
 /* Header / Nav */
 header {
