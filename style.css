@@ -152,3 +152,48 @@ button { font: inherit; }
   .sampler-box { flex-direction: column; align-items: center; }
   .sample-actions { align-items: center; }
 }
+/* === Global fixes shared by all pages === */
+:root{
+  --bg:#111;
+  --text:#fff8e7;
+  --accent: orange; /* or import your Halloween vars */
+}
+
+/* Fixed header spacing so content isn't hidden */
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  padding-top: 60px; /* match header height */
+}
+
+/* Header / Nav */
+header {
+  position: fixed; top: 0; left: 0; width: 100%;
+  padding: 10px 20px; background: #111; z-index: 1000;
+}
+.nav { display: flex; gap: 18px; align-items: center; }
+.nav a { color: white; text-decoration: none; padding: 4px 0; }
+
+.seasonal { position: relative; }
+.seasonal > a { color: var(--accent); font-weight: bold; }
+.menu {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: #111; border: 1px solid #222; border-radius: 8px;
+  padding: 8px; min-width: 200px;
+}
+.menu a { display: block; padding: 8px 10px; }
+.menu a:hover { text-decoration: underline; }
+.seasonal:hover .menu,
+.seasonal:focus-within .menu { display: block; }
+
+/* Page sections */
+.hero {
+  display: grid; place-items: center;
+  min-height: 55vh; text-align: center;
+}
+.hero img { max-width: 500px; width: 100%; height: auto; object-fit: contain; }
+.intro h1 { margin: 0.5rem 0 0; }
+.intro p { margin: 0.25rem 0 0; opacity: 0.9; }
+
+.about { max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.65; }
