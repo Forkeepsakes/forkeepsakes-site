@@ -1,199 +1,68 @@
-/* =========================
-   GLOBAL RESET + THEME
-========================= */
-:root{
-  --bg:#000;                 /* fallback if image missing */
-  --text:#f8f4ec;
-  --accent:#ffb347;          /* warm gold/orange */
-  --btn:#333;
-  --btn-hover:#555;
-  --nav-bg:#000;
-  --nav-link:#fff;
+/* Global color tokens (safe defaults) */
+/* Halloween palette */
+:root {
+--halloween-brown: #3a240f;
+--halloween-brown-mid: #5a2f0f;
+--halloween-orange: #c25a12;
+--halloween-gold: #ffb347;
+}
+body.halloween {
+background: linear-gradient(180deg,
+var(--halloween-brown) 0%,
+var(--halloween-brown-mid) 45%,
+var(--halloween-orange) 100%);
+background-attachment: fixed;
+background-size: auto; /* override cover from base */
 }
 
-/* Base */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: Georgia, serif;
-  color: var(--text);
 
-  /* Full-screen wood background (no tiling) */
-  background: url("images/oak-grain.png") center center / cover fixed no-repeat, var(--bg);
+/* Christmas palette */
+:root {
+--christmas-green: #0e6b2f;
+--christmas-red: #b00020;
+--christmas-gold: #d4af37;
 }
-
-/* Utility */
-img { max-width: 100%; height: auto; display: block; }
-button { font: inherit; }
-
-/* =========================
-   HERO / ABOUT (OPTIONAL)
-========================= */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px;
-  text-align: center;
-}
-.hero-logo { max-width: 500px; width: 100%; height: auto; margin-bottom: 30px; }
-
-.intro h1 {
-  font-size: 2.5rem;
-  margin: 0 0 10px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,.7);
-}
-.intro p { font-size: 1.25rem; margin: 0; opacity: .9; }
-
-.about {
-  max-width: 900px; margin: 60px auto; padding: 0 20px;
-  text-align: center; line-height: 1.6;
-}
-.about h2 { font-size: 2rem; margin: 0 0 20px; color: var(--accent); text-shadow: 1px 1px 4px rgba(0,0,0,.6); }
-.about p  { font-size: 1.1rem; margin: 0 0 20px; text-shadow: 1px 1px 3px rgba(0,0,0,.5); }
-
-/* =========================
-   NAVIGATION (DIV + A)
-========================= */
-.navbar {
-  position: sticky; top: 0; z-index: 1000;
-  display: flex; gap: 1rem; align-items: center;
-  background: var(--nav-bg);
-  padding: .5rem 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.35);
-}
-.navbar .nav-link a {
-  color: var(--nav-link);
-  text-decoration: none;
-  padding: .5rem .75rem;
-  display: inline-block;
-  border-radius: .35rem;
-  transition: background .15s ease, opacity .15s ease;
-}
-.navbar .nav-link a:hover { background: rgba(255,255,255,0.1); }
-.navbar a.active { font-weight: 700; text-decoration: underline; }
-
-/* Dropdown */
-.dropdown { position: relative; }
-.dropdown-toggle { cursor: pointer; }
-.dropdown-content {
-  position: absolute; top: 100%; left: 0;
-  display: none; flex-direction: column;
-  min-width: 220px;
-  background: #111; border: 1px solid #444;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-  border-radius: .5rem; overflow: hidden; z-index: 1200;
-}
-.dropdown-content a {
-  color: #fff; padding: .55rem .8rem; white-space: nowrap;
-}
-.dropdown-content a:hover { background: rgba(255,255,255,0.12); }
-/* Open on hover OR keyboard focus (better accessibility + mobile tap) */
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content { display: flex; }
-
-/* =========================
-   BUTTONS (GENERAL)
-========================= */
-.btn {
-  background: var(--btn); color: #fff; border: none;
-  padding: .6rem 1rem; border-radius: .5rem;
-  display: inline-block; text-decoration: none; cursor: pointer;
-  transition: background .2s ease, transform .1s ease, box-shadow .2s;
-  box-shadow: 0 8px 22px rgba(0,0,0,.25);
-}
-.btn:hover { background: var(--btn-hover); }
-.btn:active { transform: translateY(1px); }
-
-/* =========================
-   SAMPLER PREVIEW + MODAL
-========================= */
-.sample-preview { margin: 2rem auto; max-width: 720px; }
-.sampler-box {
-  display: flex; align-items: flex-start; gap: 1rem; justify-content: center;
-}
-.cover-thumb {
-  max-width: 120px; border-radius: 6px; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform .2s;
-}
-.cover-thumb:hover { transform: scale(1.05); }
-
-.sample-actions { display: flex; flex-direction: column; gap: .5rem; }
-.sample-actions button,
-.sample-actions .btn { background: var(--btn); color: #fff; }
-.sample-actions button:hover,
-.sample-actions .btn:hover { background: var(--btn-hover); }
-
-/* Modal (hidden by default; JS adds .show) */
-.modal { position: fixed; inset: 0; display: none; z-index: 2000; }
-.modal.show { display: block; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-.modal-content {
-  position: relative; margin: 5vh auto; max-width: 90vw; max-height: 90vh;
-  background: #000; padding: .5rem; border-radius: 12px;
-  display: flex; justify-content: center; align-items: center;
-}
-.modal-content img { max-width: 100%; max-height: 85vh; }
-.modal-close {
-  position: absolute; top: 6px; right: 8px;
-  border: 0; background: #fff; width: 32px; height: 32px;
-  border-radius: 50%; font-size: 20px; cursor: pointer;
+body.christmas {
+background: linear-gradient(180deg,
+#052a12 0%, var(--christmas-green) 50%, var(--christmas-red) 100%);
+background-attachment: fixed;
 }
 
-/* =========================
-   RESPONSIVE TWEAKS
-========================= */
-@media (max-width: 700px) {
-  .navbar { flex-wrap: wrap; gap: .5rem; }
+
+/* Valentine’s palette */
+:root {
+--valentine-rose: #d6336c;
+--valentine-pink: #ff7aa2;
+--valentine-deeppink: #c2185b;
 }
-@media (max-width: 560px) {
-  .sampler-box { flex-direction: column; align-items: center; }
-  .sample-actions { align-items: center; }
-}
-/* === Global fixes shared by all pages === */
-:root{
-  --bg:#111;
-  --text:#fff8e7;
-  --accent: orange; /* or import your Halloween vars */
+body.valentines {
+background: linear-gradient(180deg,
+var(--valentine-rose) 0%, var(--valentine-pink) 50%, var(--valentine-deeppink) 100%);
+background-attachment: fixed;
 }
 
-/* Fixed header spacing so content isn't hidden */
-body {
-  margin: 0;
-  color: var(--text);
-  background: var(--bg);
-  padding-top: 60px; /* match header height */
+
+/* Mother’s Day palette */
+:root {
+--mothers-lilac: #c9a0ff;
+--mothers-blush: #ffd1dc;
+--mothers-cream: #fff3e6;
+}
+body.mothers {
+background: linear-gradient(180deg,
+var(--mothers-cream) 0%, var(--mothers-blush) 50%, var(--mothers-lilac) 100%);
+background-attachment: fixed;
 }
 
-/* Header / Nav */
-header {
-  position: fixed; top: 0; left: 0; width: 100%;
-  padding: 10px 20px; background: #111; z-index: 1000;
-}
-.nav { display: flex; gap: 18px; align-items: center; }
-.nav a { color: white; text-decoration: none; padding: 4px 0; }
 
-.seasonal { position: relative; }
-.seasonal > a { color: var(--accent); font-weight: bold; }
-.menu {
-  display: none; position: absolute; top: 100%; left: 0;
-  background: #111; border: 1px solid #222; border-radius: 8px;
-  padding: 8px; min-width: 200px;
+/* Father’s Day palette */
+:root {
+--fathers-navy: #0d1b2a;
+--fathers-steel: #3a506b;
+--fathers-sky: #5bc0eb;
 }
-.menu a { display: block; padding: 8px 10px; }
-.menu a:hover { text-decoration: underline; }
-.seasonal:hover .menu,
-.seasonal:focus-within .menu { display: block; }
-
-/* Page sections */
-.hero {
-  display: grid; place-items: center;
-  min-height: 55vh; text-align: center;
+body.fathers {
+background: linear-gradient(180deg,
+var(--fathers-navy) 0%, var(--fathers-steel) 50%, var(--fathers-sky) 100%);
+background-attachment: fixed;
 }
-.hero img { max-width: 500px; width: 100%; height: auto; object-fit: contain; }
-.intro h1 { margin: 0.5rem 0 0; }
-.intro p { margin: 0.25rem 0 0; opacity: 0.9; }
-
-.about { max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.65; }
