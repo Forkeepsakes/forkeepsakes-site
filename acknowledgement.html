@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Acknowledgement - ForKeepSakes</title>
+
+  <!-- Your site CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Page-only styles (keep this a pure CSS block; no scripts inside) -->
   <style>
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: url("images/parchment-bg.png") center center / cover no-repeat fixed;
+      background: url("images/parchment-bg.png") center / cover no-repeat fixed;
       color: #3a2a1a;
     }
-
     .acknowledgement {
       max-width: 900px;
       margin: 0 auto;
@@ -21,21 +24,28 @@
       font-size: 1.2rem;
       position: relative;
       text-align: center;
-      background: rgba(255, 255, 255, 0.75); /* subtle overlay for readability */
+      /* If things look “foggy,” lower this alpha or remove it */
+      background: rgba(255, 255, 255, 0.75);
       border-radius: 12px;
     }
-
     .acknowledgement h1 {
       font-family: "Palatino Linotype", Georgia, serif;
       font-size: 2rem;
       margin-bottom: 20px;
     }
-
-    .acknowledgement p {
-      margin-bottom: 20px;
-    }
+    .acknowledgement p { margin-bottom: 20px; }
   </style>
+
+  <!-- Google tag (gtag.js) — keep this OUTSIDE the <style> block -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ0QLEBZ49');
+  </script>
 </head>
+
 <body>
   <header>
     <nav class="nav" aria-label="Main">
