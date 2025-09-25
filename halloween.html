@@ -1,189 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Halloween - ForKeepSakes</title>
+  <link rel="stylesheet" href="style.css" />
 
-  <style>
-    /* ===== THEME COLORS ===== */
-    :root{
-      --bg-brown:#3a240f;
-      --bg-brown-mid:#5a2f0f;
-      --bg-orange:#c25a12;
-      --text:#fff8e7;
-      --orange:#ff7a1a;
-      --harvest-red:#d33a2c;
-      --gold:#ffb347;
-    }
-
-    html,body{margin:0}
-    body{
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:var(--text);
-      background:
-        linear-gradient(180deg, var(--bg-brown) 0%, var(--bg-brown-mid) 45%, var(--bg-orange) 100%);
-      min-height:100dvh;
-      padding-top:80px;
-      position:relative;
-      overflow-x:hidden;
-    }
-
-    header{
-      position:fixed; top:0; left:0; width:100%;
-      padding:10px 20px;
-      background:rgba(0,0,0,.75);
-      backdrop-filter: blur(6px);
-      z-index:1000;
-      box-shadow:0 2px 6px rgba(0,0,0,.35);
-    }
-    nav{display:flex; align-items:center; gap:20px}
-    nav a{color:var(--text); text-decoration:none; font-weight:bold; transition:opacity .2s}
-    nav a:hover{opacity:.85}
-    nav a.active{color:var(--orange)}
-    .logo{height:50px; display:block}
-
-    .bg-decor{
-      position:fixed; inset:0;
-      z-index:0; pointer-events:none;
-      opacity:.12;
-      background-image:
-        radial-gradient(220px 180px at 15% 18%, rgba(255,179,71,.55), transparent 60%),
-        radial-gradient(280px 220px at 85% 12%, rgba(255,122,26,.45), transparent 65%),
-        radial-gradient(240px 200px at 80% 78%, rgba(211,58,44,.35), transparent 60%),
-        radial-gradient(180px 160px at 22% 78%, rgba(255,255,255,.18), transparent 60%);
-      background-repeat:no-repeat;
-      background-size:auto;
-      background-blend-mode:overlay;
-    }
-
-    section{ text-align:center; padding:48px 20px; position:relative; z-index:1 }
-    h1{ color:var(--gold); margin:0 0 10px }
-    p{ margin:0 0 18px }
-
-    .btn{
-      background-color:var(--orange);
-      color:var(--text);
-      border:none;
-      padding:12px 24px;
-      margin:10px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:bold;
-      transition:background-color .25s, transform .1s;
-      display:inline-block;
-      text-decoration:none;
-      box-shadow:0 8px 22px rgba(0,0,0,.25);
-    }
-    .btn:hover{ background-color:var(--harvest-red) }
-    .btn:active{ transform:translateY(1px) }
-
-    /* ======================
-       SAMPLER PREVIEW STYLES
-    =======================*/
-    .sample-preview { margin: 16px auto 40px; max-width: 720px; }
-    .sampler-box {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .cover-thumb{
-      max-width:120px; border-radius:6px; cursor:pointer;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-      transition: transform .2s;
-    }
-    .cover-thumb:hover{ transform: scale(1.05); }
-
-    .sample-actions{
-      display:flex; flex-direction:column; gap:.5rem;
-      align-items:flex-start;
-    }
-    .sample-actions button{
-      padding:.5rem 1rem; cursor:pointer; border-radius:4px; border:none;
-      background:#333; color:#fff; transition: background .2s;
-    }
-    .sample-actions button:hover{ background:#555; }
-
-    /* Modal hidden by default */
-    .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
-    .modal.show { display: block; }
-    .modal-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.6); }
-    .modal-content{
-      position: relative; margin: 5vh auto; max-width: 90vw; max-height: 90vh;
-      background:#000; padding:.5rem; border-radius:12px;
-      display:flex; justify-content:center; align-items:center;
-    }
-    .modal-content img{ max-width:100%; max-height:85vh; display:block; }
-    .modal-close{
-      position:absolute; top:6px; right:8px; border:0; background:#fff;
-      width:32px; height:32px; border-radius:50%; font-size:20px; cursor:pointer;
-    }
-  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ0QLEBZ49');
+  </script>
 </head>
-<body>
+<body class="halloween">
 
-  <div class="bg-decor" aria-hidden="true"></div>
-
-  <header>
-    <nav>
-      <a href="index.html" aria-label="ForKeepSakes Home">
-        <img src="images/FKS-logo.png" alt="ForKeepSakes logo" class="logo">
-      </a>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="halloween.html" class="active">Halloween 🎃</a>
-      <!-- Add your Seasonal dropdown + Contact here when ready -->
-    </nav>
-  </header>
-
-  <!-- Main content -->
-  <section>
-    <h1>Happy Halloween!</h1>
-    <p>Enjoy our seasonal content and free downloads below.</p>
-
-    <!-- Sampler preview (thumbnail + buttons) -->
-    <div class="sample-preview">
-      <div class="sampler-box">
-        <img src="images/halloween_sampler_cover.jpg"
-             alt="Sampler Cover"
-             class="cover-thumb"
-             id="openModal">
-        <div class="sample-actions">
-          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
-            <button>Preview</button>
-          </a>
-          <a href="downloads/halloween_sampler_complete.pdf" download>
-            <button>Download</button>
-          </a>
-        </div>
+<header>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <div class="seasonal">
+      <a href="halloween.html" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+      <div class="menu" role="menu" aria-label="Seasonal links">
+        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+        <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+        <a href="easter.html" role="menuitem">Easter 🐣</a>
       </div>
     </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Halloween hero">
+    <h1>Happy Halloween 🎃</h1>
+    <p>Celebrate the spooky season with ForKeepSakes</p>
   </section>
 
-  <!-- Modal kept INSIDE the body, hidden by default -->
-  <div class="modal" id="coverModal" aria-hidden="true">
-    <div class="modal-backdrop" id="closeModal"></div>
-    <div class="modal-content">
-      <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
-      <button class="modal-close" id="closeModalBtn">×</button>
-    </div>
-  </div>
+  <section class="downloads">
+    <h2>Free Halloween Sampler</h2>
+    <p>Download your free coloring pages sampler below:</p>
+    <a href="downloads/halloween_sampler_complete.pdf" class="button">Download PDF</a>
+  </section>
+</main>
 
-  <!-- JS toggles the modal -->
-  <script>
-    const open = document.getElementById('openModal');
-    const modal = document.getElementById('coverModal');
-    const closeBackdrop = document.getElementById('closeModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-
-    function show() { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
-    function hide() { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
-
-    open?.addEventListener('click', show);
-    closeBackdrop?.addEventListener('click', hide);
-    closeBtn?.addEventListener('click', hide);
-    window.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
-  </script>
 </body>
 </html>
