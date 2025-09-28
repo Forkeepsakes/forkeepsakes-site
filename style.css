@@ -1,118 +1,198 @@
 /* =========================
-   GLOBAL RESET + THEME
+   GLOBAL THEME & RESET
 ========================= */
-:root{
-  --bg:#000;                 /* fallback if image missing */
-  --text:#f8f4ec;
-  --accent:#ffb347;          /* warm gold/orange */
-  --btn:#333;
-  --btn-hover:#555;
-  --nav-bg:#000;
-  --nav-link:#fff;
+:root {
+  --bg-fallback: #111;           /* if oak-grain image is missing */
+  --text: #f5f0e6;               /* body text color */
+  --accent: #ffb347;             /* warm gold/orange for headings, accents */
+
+  /* Nav */
+  --nav-link: #f5f0e6;           /* cream link text */
+  --nav-link-hover: #ffe4b5;     /* warm highlight */
+
+  /* Buttons */
+  --btn: #333;
+  --btn-hover: #555;
 }
 
-/* Base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  font-family: Georgia, serif;
-  color: var(--text);
-
-  /* Full-screen wood background (no tiling) */
-  background: url("images/oak-grain.png") center center / cover fixed no-repeat, var(--bg);
 }
-
-/* Utility */
-img { max-width: 100%; height: auto; display: block; }
-button { font: inherit; }
 
 /* =========================
-   HERO / ABOUT (OPTIONAL)
+   BASE
+========================= */
+body {
+  color: var(--text);
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  font-size: 16px;
+
+  /* Global page background (seasonal pages can override in-page) */
+  background: url("images/oak-grain.png") center center / cover fixed no-repeat, var(--bg-fallback);
+
+  /* Make room for fixed header */
+  padding-top: 80px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+button { font: inherit; cursor: pointer; }
+
+/* Better keyboard focus */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Prevent horizontal scroll on small screens */
+html, body { overflow-x: hidden; }
+
+/* =========================
+   GLOBAL WOOD-GRAIN NAV (ALL PAGES)
+========================= */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: url("images/oak-grain.png") center / cover no-repeat;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav a {
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 4px 0;
+  font-weight: 700;
+  transition: color .15s ease, opacity .15s ease, background .15s ease;
+}
+
+.nav a:hover {
+  color: var(--nav-link-hover);
+  text-decoration: underline;
+}
+
+/* Dropdown */
+.seasonal { position: relative; }
+.seasonal > a { font-weight: 800; }
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  min-width: 200px;
+  background: rgba(17,17,17,.95);
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 8px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  z-index: 1200;
+}
+.menu a {
+  display: block;
+  padding: 8px 10px;
+  white-space: nowrap;
+  color: #fff;
+}
+.menu a:hover {
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+}
+
+.seasonal:hover .menu,
+.seasonal:focus-within .menu { display: block; }
+
+/* =========================
+   HERO / ABOUT (used on Home)
 ========================= */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px;
+  display: grid;
+  place-items: center;
+  min-height: 55vh;
   text-align: center;
+  padding: 60px 20px;
 }
-.hero-logo { max-width: 500px; width: 100%; height: auto; margin-bottom: 30px; }
-
+.hero img { max-width: 500px; width: 100%; object-fit: contain; }
 .intro h1 {
   font-size: 2.5rem;
   margin: 0 0 10px;
+  color: var(--text);
   text-shadow: 2px 2px 6px rgba(0,0,0,.7);
 }
 .intro p { font-size: 1.25rem; margin: 0; opacity: .9; }
 
 .about {
-  max-width: 900px; margin: 60px auto; padding: 0 20px;
-  text-align: center; line-height: 1.6;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  line-height: 1.65;
 }
-.about h2 { font-size: 2rem; margin: 0 0 20px; color: var(--accent); text-shadow: 1px 1px 4px rgba(0,0,0,.6); }
-.about p  { font-size: 1.1rem; margin: 0 0 20px; text-shadow: 1px 1px 3px rgba(0,0,0,.5); }
+.about h2 {
+  font-size: 2rem;
+  margin: 0 0 20px;
+  color: var(--accent);
+  text-shadow: 1px 1px 4px rgba(0,0,0,.6);
+}
+.about p {
+  font-size: 1.1rem;
+  margin: 0 0 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
 
 /* =========================
-   NAVIGATION (DIV + A)
+   BUTTONS
 ========================= */
-
-.navbar .nav-link a:hover { background: rgba(255,255,255,0.1); }
-.navbar a.active { font-weight: 700; text-decoration: underline; }
-
-/* Dropdown */
-.dropdown { position: relative; }
-.dropdown-toggle { cursor: pointer; }
-.dropdown-content {
-  position: absolute; top: 100%; left: 0;
-  display: none; flex-direction: column;
-  min-width: 220px;
-  background: #111; border: 1px solid #444;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-  border-radius: .5rem; overflow: hidden; z-index: 1200;
-}
-.dropdown-content a {
-  color: #fff; padding: .55rem .8rem; white-space: nowrap;
-}
-.dropdown-content a:hover { background: rgba(255,255,255,0.12); }
-/* Open on hover OR keyboard focus (better accessibility + mobile tap) */
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content { display: flex; }
-
-/* =========================
-   BUTTONS (GENERAL)
-========================= */
-.btn {
-  background: var(--btn); color: #fff; border: none;
-  padding: .6rem 1rem; border-radius: .5rem;
-  display: inline-block; text-decoration: none; cursor: pointer;
+.btn,
+a.btn {
+  background: var(--btn);
+  color: #fff;
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  display: inline-block;
+  text-decoration: none;
   transition: background .2s ease, transform .1s ease, box-shadow .2s;
   box-shadow: 0 8px 22px rgba(0,0,0,.25);
 }
-.btn:hover { background: var(--btn-hover); }
-.btn:active { transform: translateY(1px); }
+.btn:hover, a.btn:hover { background: var(--btn-hover); }
+.btn:active, a.btn:active { transform: translateY(1px); }
 
 /* =========================
-   SAMPLER PREVIEW + MODAL
+   SAMPLER PREVIEW + MODAL (used on seasonal pages)
 ========================= */
 .sample-preview { margin: 2rem auto; max-width: 720px; }
 .sampler-box {
   display: flex; align-items: flex-start; gap: 1rem; justify-content: center;
 }
 .cover-thumb {
-  max-width: 120px; border-radius: 6px; cursor: pointer;
+  max-width: 120px; border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform .2s;
+  cursor: pointer;
 }
 .cover-thumb:hover { transform: scale(1.05); }
 
 .sample-actions { display: flex; flex-direction: column; gap: .5rem; }
-.sample-actions button,
-.sample-actions .btn { background: var(--btn); color: #fff; }
-.sample-actions button:hover,
-.sample-actions .btn:hover { background: var(--btn-hover); }
+.sample-actions .btn, .sample-actions button {
+  background: var(--btn); color: #fff; border: none; padding: .5rem 1rem; border-radius: .5rem;
+}
+.sample-actions .btn:hover, .sample-actions button:hover { background: var(--btn-hover); }
 
-/* Modal (hidden by default; JS adds .show) */
+/* Modal */
 .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
 .modal.show { display: block; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
@@ -129,82 +209,17 @@ button { font: inherit; }
 }
 
 /* =========================
-   RESPONSIVE TWEAKS
+   RESPONSIVE
 ========================= */
 @media (max-width: 700px) {
-  .navbar { flex-wrap: wrap; gap: .5rem; }
+  header { padding: 8px 12px; }
+  .nav { gap: 12px; flex-wrap: wrap; }
+  body { padding-top: 72px; } /* slightly shorter header on small screens */
 }
 @media (max-width: 560px) {
   .sampler-box { flex-direction: column; align-items: center; }
   .sample-actions { align-items: center; }
 }
-/* === Global fixes shared by all pages === */
-:root{
-  --bg:#111;
-  --text:#fff8e7;
-  --accent: orange; /* or import your Halloween vars */
-}
-
-/* Fixed header spacing so content isn't hidden */
-
- body {
-  margin: 0;
-  color: var(--text);
-  font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: url("images/oak-grain.png") repeat center center fixed;
-  background-size: cover;
-  padding-top: 60px; /* clears the fixed header */
-}
-
-
-/* Header / Nav */
-
-.seasonal { position: relative; }
-.seasonal > a { color: var(--accent); font-weight: bold; }
-.menu {
-  display: none; position: absolute; top: 100%; left: 0;
-  background: #111; border: 1px solid #222; border-radius: 8px;
-  padding: 8px; min-width: 200px;
-}
-.menu a { display: block; padding: 8px 10px; }
-.menu a:hover { text-decoration: underline; }
-.seasonal:hover .menu,
-.seasonal:focus-within .menu { display: block; }
-
-/* Page sections */
-.hero {
-  display: grid; place-items: center;
-  min-height: 55vh; text-align: center;
-}
-.hero img { max-width: 500px; width: 100%; height: auto; object-fit: contain; }
-.intro h1 { margin: 0.5rem 0 0; }
-.intro p { margin: 0.25rem 0 0; opacity: 0.9; }
-
-.about { max-width: 900px; margin: 2rem auto; padding: 0 1rem; line-height: 1.65; }
-/* --- Mobile fixes --- */
-* { box-sizing: border-box; }
-html, body { overflow-x: hidden; }          /* stop horizontal scrolling */
-img { max-width: 100%; height: auto; }      /* images scale on small screens */
-
-/* Base type: keep text readable on phones */
-body { line-height: 1.6; font-size: 16px; }
-
-/* Responsive layout */
-@media (max-width: 600px) {
-  header { padding: 8px 12px; }
-  .nav { gap: 12px; flex-wrap: wrap; }      /* allow nav to wrap instead of forcing width */
-  body { padding-top: 56px; }               /* fixed header height tweak */
-
-  .hero { min-height: auto; padding: 1rem 0.5rem; }
-  .hero img { max-width: 90vw; }            /* logo fits screen */
-
-  .intro h1 { font-size: 1.75rem; margin: 0.5rem 0 0.25rem; }
-  .intro p  { font-size: 1rem; }
-
-  .about { max-width: 90vw; margin: 1.25rem auto; }
-}
-
-/* Optional: slightly larger text on very small phones */
 @media (max-width: 380px) {
   body { font-size: 17px; }
 }
