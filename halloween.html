@@ -4,95 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Halloween - ForKeepSakes</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ0QLEBZ49');
+  </script>
 
   <style>
-    /* ===== THEME COLORS ===== */
-    :root{
-      --bg-brown:#3a240f;
-      --bg-brown-mid:#5a2f0f;
-      --bg-orange:#c25a12;
-      --text:#fff8e7;
-      --orange:#ff7a1a;
-      --harvest-red:#d33a2c;
-      --gold:#ffb347;
+    /* 🎃 Halloween-only background: pumpkin ridges */
+    body {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #ff7a1a 0px,
+          #ff9d3f 60px,
+          #ff7a1a 120px
+        ),
+        url("images/oak-grain.png") center/cover fixed no-repeat; /* fallback layer */
+      color: #fff8e7;
+      /* Global header is 80px; banner is ~80px */
+      padding-top: 160px;
+      overflow-x: hidden;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
 
-    html,body{margin:0}
-  body {
-  font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: var(--text);
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #ff7a1a 0px,
-      #ff9d3f 60px,
-      #ff7a1a 120px
-    ); /* pumpkin ridges */
-  min-height: 100dvh;
-  padding-top: 80px;
-  position: relative;
-  overflow-x: hidden;
-}
+    /* ✅ DO NOT style header/nav here (global wood-grain nav comes from style.css) */
 
-
-    header{
-      position:fixed; top:0; left:0; width:100%;
-      padding:10px 20px;
-      background:rgba(0,0,0,.75);
-      backdrop-filter: blur(6px);
-      z-index:1000;
-      box-shadow:0 2px 6px rgba(0,0,0,.35);
+    /* Green banner fixed under the global nav */
+    .h-banner {
+      position: fixed;
+      top: 80px;           /* sits right below the fixed global nav */
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 22px 12px;
+      background: linear-gradient(90deg, #0b3d0b, #1f6d1f, #0b3d0b);
+      color: #fff8e7;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      z-index: 900;        /* below header (1000), above content */
     }
-    nav{display:flex; align-items:center; gap:20px}
-    nav a{color:var(--text); text-decoration:none; font-weight:bold; transition:opacity .2s}
-    nav a:hover{opacity:.85}
-    nav a.active{color:var(--orange)}
-    .logo{height:50px; display:block}
+    .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
-    .bg-decor{
-      position:fixed; inset:0;
-      z-index:0; pointer-events:none;
-      opacity:.12;
-      background-image:
-        radial-gradient(220px 180px at 15% 18%, rgba(255,179,71,.55), transparent 60%),
-        radial-gradient(280px 220px at 85% 12%, rgba(255,122,26,.45), transparent 65%),
-        radial-gradient(240px 200px at 80% 78%, rgba(211,58,44,.35), transparent 60%),
-        radial-gradient(180px 160px at 22% 78%, rgba(255,255,255,.18), transparent 60%);
-      background-repeat:no-repeat;
-      background-size:auto;
-      background-blend-mode:overlay;
-    }
+    /* Content */
+    section { text-align:center; padding:48px 20px; position:relative; z-index:1 }
+    h1 { color:#ffb347; margin:0 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+    p  { margin:0 0 18px; color:#ffdcb3; }
 
-    section{ text-align:center; padding:48px 20px; position:relative; z-index:1 }
-    h1{ color:var(--gold); margin:0 0 10px }
-    p{ margin:0 0 18px }
-
+    /* Buttons */
     .btn{
-      background-color:var(--orange);
-      color:var(--text);
-      border:none;
-      padding:12px 24px;
-      margin:10px;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:bold;
+      background-color:#c25a12; color:#fff; border:none;
+      padding:12px 24px; margin:10px; border-radius:10px;
+      cursor:pointer; font-weight:bold;
       transition:background-color .25s, transform .1s;
-      display:inline-block;
-      text-decoration:none;
+      display:inline-block; text-decoration:none;
       box-shadow:0 8px 22px rgba(0,0,0,.25);
     }
-    .btn:hover{ background-color:var(--harvest-red) }
+    .btn:hover{ background:#ff7a1a }
     .btn:active{ transform:translateY(1px) }
 
-    /* ======================
-       SAMPLER PREVIEW STYLES
-    =======================*/
+    /* Sampler preview */
     .sample-preview { margin: 16px auto 40px; max-width: 720px; }
     .sampler-box {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      justify-content: center;
+      display: flex; align-items: flex-start; gap: 1rem; justify-content: center;
     }
     .cover-thumb{
       max-width:120px; border-radius:6px; cursor:pointer;
@@ -100,18 +80,11 @@
       transition: transform .2s;
     }
     .cover-thumb:hover{ transform: scale(1.05); }
-
     .sample-actions{
-      display:flex; flex-direction:column; gap:.5rem;
-      align-items:flex-start;
+      display:flex; flex-direction:column; gap:.5rem; align-items:flex-start;
     }
-    .sample-actions button{
-      padding:.5rem 1rem; cursor:pointer; border-radius:4px; border:none;
-      background:#333; color:#fff; transition: background .2s;
-    }
-    .sample-actions button:hover{ background:#555; }
 
-    /* Modal hidden by default */
+    /* Modal */
     .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
     .modal.show { display: block; }
     .modal-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.6); }
@@ -126,77 +99,33 @@
       width:32px; height:32px; border-radius:50%; font-size:20px; cursor:pointer;
     }
 
-    /* ===== Halloween Decorations ===== */
-   .h-banner {
-  position: fixed;        /* lock in place */
-  top: 71px;              /* sits just below the nav (nav is ~80px tall) */
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 22px 12px;
-  background: linear-gradient(90deg, #0b3d0b, #1f6d1f, #0b3d0b);
-  color: #fff8e7;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-  z-index: 900;           /* below nav (1000), above content */
-}
-
-
-    .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
-
-    .bat-divider {
-      text-align:center; margin:28px auto; font-size:24px;
-      opacity:.9; user-select:none;
-    }
-
-    .bats { position: fixed; inset: 0; pointer-events:none; z-index: 1; }
-    .bat { position: absolute; font-size: 22px; opacity: .25; animation: flap 8s linear infinite; }
-    .bat.b1 { top: 120px; left: -40px; animation-delay: .2s; }
-    .bat.b2 { top: 220px; left: -60px; animation-delay: 1.1s; }
-    .bat.b3 { top: 320px; left: -50px; animation-delay: 2.0s; }
-    @keyframes flap {
-      0%   { transform: translateX(0) translateY(0) rotate(0deg); opacity: .00; }
-      5%   { opacity:.25; }
-      50%  { transform: translateX(55vw) translateY(-10px) rotate(-6deg); }
-      100% { transform: translateX(105vw) translateY(0) rotate(6deg); opacity:.00; }
-    }
+    /* Optional cute divider */
+    .bat-divider { text-align:center; margin:28px auto; font-size:24px; opacity:.9; user-select:none; }
   </style>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BJ0QLEBZ49');
-  </script>
 </head>
 <body>
 
-  <div class="bg-decor" aria-hidden="true"></div>
-
+  <!-- ✅ Global wood-grain nav (same on every page) -->
   <header>
-  <nav class="nav" aria-label="Main">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="acknowledgement.html">Acknowledgement</a>
-    <div class="seasonal">
-      <a href="halloween.html">Seasonal ▾</a>
-      <div class="menu" role="menu" aria-label="Seasonal links">
-        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
-        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
-        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
-        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
-        <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
-        <a href="easter.html" role="menuitem">Easter 🐣</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="acknowledgement.html">Acknowledgement</a>
+      <div class="seasonal">
+        <a href="halloween.html" aria-current="page">Seasonal ▾</a>
+        <div class="menu" role="menu" aria-label="Seasonal links">
+          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+          <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+          <a href="easter.html" role="menuitem">Easter 🐣</a>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-
-  <!-- Decorative Banner -->
+  <!-- Fixed green banner under the nav -->
   <section class="h-banner">
     <div>Happy Halloween 🎃</div>
     <span class="sub">Spooky keepsakes, cozy vibes, and a little bit of magic.</span>
@@ -207,7 +136,6 @@
     <h1>Happy Halloween!</h1>
     <p>Enjoy our seasonal content and free downloads below.</p>
 
-    <!-- Sampler preview -->
     <div class="sample-preview">
       <div class="sampler-box">
         <img src="images/halloween_sampler_cover.jpg"
@@ -215,12 +143,8 @@
              class="cover-thumb"
              id="openModal">
         <div class="sample-actions">
-          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener">
-            <button>Preview</button>
-          </a>
-          <a href="downloads/halloween_sampler_complete.pdf" download>
-            <button>Download</button>
-          </a>
+          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener" class="btn">Preview</a>
+          <a href="downloads/halloween_sampler_complete.pdf" download class="btn">Download</a>
         </div>
       </div>
     </div>
@@ -235,13 +159,6 @@
       <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
       <button class="modal-close" id="closeModalBtn">×</button>
     </div>
-  </div>
-
-  <!-- Floating Bats -->
-  <div class="bats" aria-hidden="true">
-    <div class="bat b1">🦇</div>
-    <div class="bat b2">🦇</div>
-    <div class="bat b3">🦇</div>
   </div>
 
   <!-- JS toggles the modal -->
