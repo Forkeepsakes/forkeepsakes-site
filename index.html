@@ -1,46 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- ✅ The <style>…</style> block that was here is now gone -->
-  
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ForKeepSakes</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BJ0QLEBZ49');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ0QLEBZ49');
+  </script>
 
-</script>
+  <!-- Homepage-only nav override -->
+  <style>
+    body.home header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background: url("images/oak-grain.png") center/cover no-repeat !important;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
+    body.home .nav a {
+      color: #2b1a0e; /* deep brown text */
+      font-weight: bold;
+    }
+
+    body.home .nav a:hover {
+      text-decoration: underline;
+      color: #8b4513; /* warm wood highlight */
+    }
+  </style>
 </head>
 <body class="home">
-
-
-<header>
-  <nav class="nav" aria-label="Main">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="acknowledgement.html">Acknowledgement</a>
-    <div class="seasonal">
-      <a href="halloween.html">Seasonal ▾</a>
-      <div class="menu">
-        <a href="halloween.html">Halloween 🎃</a>
-        <a href="christmas.html">Christmas 🎄</a>
-        <a href="valentines.html">Valentine’s ❤️</a>
-        <a href="mothers-day.html">Mother’s Day 🌸</a>
-        <a href="fathers-day.html">Father’s Day 🛠️</a>
-        <a href="easter.html">Easter 🐣</a>
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="acknowledgement.html">Acknowledgement</a>
+      <div class="seasonal">
+        <a href="halloween.html">Seasonal ▾</a>
+        <div class="menu">
+          <a href="halloween.html">Halloween 🎃</a>
+          <a href="christmas.html">Christmas 🎄</a>
+          <a href="valentines.html">Valentine’s ❤️</a>
+          <a href="mothers-day.html">Mother’s Day 🌸</a>
+          <a href="fathers-day.html">Father’s Day 🛠️</a>
+          <a href="easter.html">Easter 🐣</a>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
 
 <section class="hero" aria-label="ForKeepSakes seasonal hero">
