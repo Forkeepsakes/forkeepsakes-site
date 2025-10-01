@@ -228,10 +228,6 @@ a.btn {
 /* Mobile-friendly dropdown toggle (used by JS) */
 .seasonal.open .menu { display: block; }
 
-/* Left-aligned ack link under hero (Home) */
-.ack-below-hero { max-width: 1000px; margin: 0 auto; padding: 0 20px 10px; text-align: left; }
-.ack-below-hero-link { font-weight: 700; color: #4b2e1a; text-decoration: none; }
-.ack-below-hero-link:hover { text-decoration: underline; }
 
 /* Prevent horizontal overflow */
 html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
