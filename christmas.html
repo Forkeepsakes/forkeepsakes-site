@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Christmas - ForKeepSakes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
@@ -16,10 +16,27 @@
   </script>
 
   <style>
+    /* Festive background (green stripes) */
+    body.christmas {
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #fff8e7;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #0b3d0b 0px,
+          #1f6d1f 60px,
+          #0b3d0b 120px
+        );
+      min-height: 100dvh;
+      padding-top: 160px; /* nav + banner */
+      position: relative;
+      overflow-x: hidden;
+    }
+
     /* Christmas banner */
     .h-banner {
       position: fixed;
-      top: 52px; /* sits just below nav */
+      top: 52px; /* below nav */
       left: 0;
       width: 100%;
       text-align: center;
@@ -33,48 +50,30 @@
     }
     .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
-    /* Festive background (red stripes) */
-   body {
-  font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: #fff8e7;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #0b3d0b 0px,   /* deep pine green */
-      #1f6d1f 60px, /* medium green stripe */
-      #0b3d0b 120px /* deep pine green */
-    );
-  min-height: 100dvh;
-  padding-top: 160px; /* nav + banner */
-  position: relative;
-  overflow-x: hidden;
-}
-
-
     h1 { color: #ffcc66; }
     p { color: #fff; }
   </style>
 </head>
-<body>
- <header>
-  <nav class="nav" aria-label="Main">
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="acknowledgement.html">Acknowledgement</a>
-    <div class="seasonal">
-      <a href="halloween.html">Seasonal ▾</a>
-      <div class="menu" role="menu" aria-label="Seasonal links">
-        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
-        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
-        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
-        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
-        <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
-        <a href="easter.html" role="menuitem">Easter 🐣</a>
+<body class="christmas">
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <!-- Ack is hidden on this page via CSS in style.css -->
+      <a href="acknowledgement.html" class="ack-link-nav">Acknowledgement</a>
+      <div class="seasonal">
+        <a href="halloween.html" class="seasonal-trigger" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+        <div class="menu" role="menu" aria-label="Seasonal links">
+          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+          <a href="christmas.html" role="menuitem" aria-current="page">Christmas 🎄</a>
+          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+          <a href="easter.html" role="menuitem">Easter 🐣</a>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
-
+    </nav>
+  </header>
 
   <!-- Decorative Banner -->
   <section class="h-banner">
@@ -82,10 +81,13 @@
     <span class="sub">Celebrate the season with joy, creativity, and ForKeepSakes.</span>
   </section>
 
-  <!-- Main content -->
-  <section class="christmas-hero">
-    <h1>Merry Christmas!</h1>
-    <p>Seasonal projects and downloads coming soon.</p>
-  </section>
+  <main>
+    <section class="christmas-hero">
+      <h1>Merry Christmas!</h1>
+      <p>Seasonal projects and downloads coming soon.</p>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

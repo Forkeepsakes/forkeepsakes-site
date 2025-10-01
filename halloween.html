@@ -6,7 +6,7 @@
   <title>Halloween - ForKeepSakes</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,8 +16,8 @@
   </script>
 
   <style>
-    /* 🎃 Halloween-only background: pumpkin ridges */
-    body {
+    /* 🎃 Halloween-only background */
+    body.halloween {
       background:
         repeating-linear-gradient(
           90deg,
@@ -25,20 +25,17 @@
           #ff9d3f 60px,
           #ff7a1a 120px
         ),
-        url("images/oak-grain.png") center/cover fixed no-repeat; /* fallback layer */
+        url("images/oak-grain.png") center/cover no-repeat;
       color: #fff8e7;
-      /* Global header is 80px; banner is ~80px */
-      padding-top: 160px;
+      padding-top: 160px; /* nav + banner */
       overflow-x: hidden;
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
 
-    /* ✅ DO NOT style header/nav here (global wood-grain nav comes from style.css) */
-
     /* Green banner fixed under the global nav */
     .h-banner {
       position: fixed;
-      top: 52px;           /* sits right below the fixed global nav */
+      top: 52px; /* below fixed header */
       left: 0;
       width: 100%;
       text-align: center;
@@ -48,16 +45,14 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-      z-index: 900;        /* below header (1000), above content */
+      z-index: 900;
     }
     .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
-    /* Content */
     section { text-align:center; padding:48px 20px; position:relative; z-index:1 }
     h1 { color:#ffb347; margin:0 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
     p  { margin:0 0 18px; color:#ffdcb3; }
 
-    /* Buttons */
     .btn{
       background-color:#c25a12; color:#fff; border:none;
       padding:12px 24px; margin:10px; border-radius:10px;
@@ -71,18 +66,14 @@
 
     /* Sampler preview */
     .sample-preview { margin: 16px auto 40px; max-width: 720px; }
-    .sampler-box {
-      display: flex; align-items: flex-start; gap: 1rem; justify-content: center;
-    }
+    .sampler-box { display:flex; align-items:flex-start; gap:1rem; justify-content:center; }
     .cover-thumb{
       max-width:120px; border-radius:6px; cursor:pointer;
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
       transition: transform .2s;
     }
     .cover-thumb:hover{ transform: scale(1.05); }
-    .sample-actions{
-      display:flex; flex-direction:column; gap:.5rem; align-items:flex-start;
-    }
+    .sample-actions{ display:flex; flex-direction:column; gap:.5rem; align-items:flex-start; }
 
     /* Modal */
     .modal { position: fixed; inset: 0; display: none; z-index: 2000; }
@@ -99,20 +90,18 @@
       width:32px; height:32px; border-radius:50%; font-size:20px; cursor:pointer;
     }
 
-    /* Optional cute divider */
     .bat-divider { text-align:center; margin:28px auto; font-size:24px; opacity:.9; user-select:none; }
   </style>
 </head>
-<body>
-
-  <!-- ✅ Global wood-grain nav (same on every page) -->
+<body class="halloween">
   <header>
     <nav class="nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
-      <a href="acknowledgement.html">Acknowledgement</a>
+      <!-- Ack is hidden on this page via CSS in style.css -->
+      <a href="acknowledgement.html" class="ack-link-nav">Acknowledgement</a>
       <div class="seasonal">
-        <a href="halloween.html" aria-current="page">Seasonal ▾</a>
+        <a href="halloween.html" class="seasonal-trigger" aria-current="page" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
         <div class="menu" role="menu" aria-label="Seasonal links">
           <a href="halloween.html" role="menuitem">Halloween 🎃</a>
           <a href="christmas.html" role="menuitem">Christmas 🎄</a>
@@ -125,52 +114,48 @@
     </nav>
   </header>
 
-  <!-- Fixed green banner under the nav -->
   <section class="h-banner">
     <div>Happy Halloween 🎃</div>
     <span class="sub">Spooky keepsakes, cozy vibes, and a little bit of magic.</span>
   </section>
 
-  <!-- Main content -->
-  <section>
-    <h1>Happy Halloween!</h1>
-    <p>Enjoy our seasonal content and free downloads below.</p>
+  <main>
+    <section>
+      <h1>Happy Halloween!</h1>
+      <p>Enjoy our seasonal content and free downloads below.</p>
 
-    <div class="sample-preview">
-      <div class="sampler-box">
-        <img src="images/halloween_sampler_cover.jpg"
-             alt="Sampler Cover"
-             class="cover-thumb"
-             id="openModal">
-        <div class="sample-actions">
-          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener" class="btn">Preview</a>
-          <a href="downloads/halloween_sampler_complete.pdf" download class="btn">Download</a>
+      <div class="sample-preview">
+        <div class="sampler-box">
+          <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover" class="cover-thumb" id="openModal">
+          <div class="sample-actions">
+            <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" rel="noopener" class="btn">Preview</a>
+            <a href="downloads/halloween_sampler_complete.pdf" download class="btn">Download</a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <div class="bat-divider">🦇 🦇 🦇</div>
+
+    <!-- Modal -->
+    <div class="modal" id="coverModal" aria-hidden="true">
+      <div class="modal-backdrop" id="closeModal"></div>
+      <div class="modal-content">
+        <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
+        <button class="modal-close" id="closeModalBtn">×</button>
+      </div>
     </div>
-  </section>
+  </main>
 
-  <div class="bat-divider">🦇 🦇 🦇</div>
-
-  <!-- Modal -->
-  <div class="modal" id="coverModal" aria-hidden="true">
-    <div class="modal-backdrop" id="closeModal"></div>
-    <div class="modal-content">
-      <img src="images/halloween_sampler_cover.jpg" alt="Sampler Cover Large">
-      <button class="modal-close" id="closeModalBtn">×</button>
-    </div>
-  </div>
-
-  <!-- JS toggles the modal -->
+  <script src="script.js" defer></script>
   <script>
+    // simple modal toggle for the thumbnail
     const open = document.getElementById('openModal');
     const modal = document.getElementById('coverModal');
     const closeBackdrop = document.getElementById('closeModal');
     const closeBtn = document.getElementById('closeModalBtn');
-
-    function show() { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
-    function hide() { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
-
+    function show(){ modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }
+    function hide(){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
     open?.addEventListener('click', show);
     closeBackdrop?.addEventListener('click', hide);
     closeBtn?.addEventListener('click', hide);
