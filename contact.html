@@ -1,92 +1,122 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - ForKeepSakes</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Root-absolute so paths work anywhere -->
+  <link rel="stylesheet" href="/style.css" />
+
   <style>
+    /* Wood grain fixed, no page scroll */
     body.contact {
-      background: 
-        url("images/FKS-logo.png") center center / 33% no-repeat fixed,
-        url("images/oak-grain.png") center/cover no-repeat fixed;
-      /* Logo watermark stays fixed, oak-grain stays fixed */
+      background: url("/images/oak-grain.png") center/cover no-repeat fixed;
+      overflow: hidden; /* page itself doesn’t scroll */
     }
 
-    .contact-container {
-      max-width: 800px;
-      margin: 120px auto 60px;
+    /* Full-viewport layout, minus fixed header (about ~80px tall) */
+    .contact-wrap {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      grid-template-rows: auto auto auto;
+      justify-items: center;
+      align-content: center;
+      gap: 18px;
       padding: 20px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 12px;
-      text-align: center;
-      color: #333;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
     }
 
-    .contact-container h1 {
+    /* The semi-transparent message card */
+    .contact-card {
+      max-width: 840px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      padding: 24px 22px;
+      text-align: center;
+    }
+    .contact-card h1 {
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin: 0 0 10px;
       color: var(--accent);
       text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
-
-    .contact-container p {
-      margin-bottom: 15px;
+    .contact-card p {
+      margin: 8px 0;
       font-size: 1.1rem;
+      line-height: 1.6;
     }
 
-    .contact-links {
-      margin-top: 25px;
-    }
-    .contact-links a {
+    /* Email link under the message */
+    .contact-email a {
       display: inline-block;
-      margin: 8px 12px;
+      margin-top: 6px;
       padding: 10px 20px;
-      border-radius: 6px;
+      border-radius: 8px;
       background: var(--btn);
       color: #fff;
       text-decoration: none;
-      transition: background .2s;
+      transition: background .2s ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
     }
-    .contact-links a:hover {
-      background: var(--btn-hover);
+    .contact-email a:hover { background: var(--btn-hover); }
+
+    /* Logo below the email link */
+    .contact-logo {
+      max-width: min(260px, 45vw);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.25));
+    }
+
+    /* Safety clamp for tiny screens (keeps it non-scrolling) */
+    @media (max-height: 620px) {
+      .contact-card { padding: 18px; }
+      .contact-card h1 { font-size: 1.6rem; }
+      .contact-card p { font-size: 1rem; }
+      .contact-logo { max-width: min(200px, 50vw); }
+      .contact-wrap { gap: 12px; }
     }
   </style>
 </head>
 <body class="contact">
   <header>
     <nav class="nav" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="acknowledgement.html">Acknowledgement</a>
-      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <!-- Acknowledgement & Contact removed on this page -->
       <div class="seasonal">
-        <a href="halloween.html" class="seasonal-trigger" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+        <a href="/halloween.html" class="seasonal-trigger" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
         <div class="menu" role="menu">
-          <a href="halloween.html">Halloween 🎃</a>
-          <a href="christmas.html">Christmas 🎄</a>
-          <a href="valentines.html">Valentine’s ❤️</a>
-          <a href="mothers-day.html">Mother’s Day 🌸</a>
-          <a href="fathers-day.html">Father’s Day 🛠️</a>
-          <a href="easter.html">Easter 🐣</a>
+          <a href="/halloween.html">Halloween 🎃</a>
+          <a href="/christmas.html">Christmas 🎄</a>
+          <a href="/valentines.html">Valentine’s ❤️</a>
+          <a href="/mothers-day.html">Mother’s Day 🌸</a>
+          <a href="/fathers-day.html">Father’s Day 🛠️</a>
+          <a href="/easter.html">Easter 🐣</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="contact-container">
-      <h1>Contact ForKeepSakes</h1>
-      <p>All feedback is welcome, and ForKeepSakes is grateful for the support of every visitor and supporter.</p>
-      <p>If you’d like to reach out directly, please email us below:</p>
-      
-      <div class="contact-links">
+    <!-- Centered stack: message card, then email button, then logo -->
+    <section class="contact-wrap" aria-label="Contact ForKeepSakes">
+      <div class="contact-card">
+        <h1>Contact ForKeepSakes</h1>
+        <p>All feedback is welcome, and ForKeepSakes is grateful for the support of every visitor and supporter.</p>
+        <p>If you’d like to reach out directly, please email us below.</p>
+      </div>
+
+      <div class="contact-email">
         <a href="mailto:forkeepsakesfks@gmail.com">Email Us</a>
       </div>
+
+      <img src="/images/FKS-logo.png" alt="ForKeepSakes Logo" class="contact-logo" />
     </section>
   </main>
 
-  <script src="script.js" defer></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
