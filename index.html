@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ForKeepSakes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
@@ -14,127 +14,57 @@
     gtag('js', new Date());
     gtag('config', 'G-BJ0QLEBZ49');
   </script>
-
-  <!-- Homepage-only nav override -->
-  <style>
-    body.home header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px 20px;
-      background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url("images/oak-grain.png") center/cover no-repeat !important;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    body.home .nav a {
-      color: #f5f0e6;
-      font-weight: bold;
-      text-decoration: none;
-      padding: 4px 0;
-    }
-
-    body.home .nav a:hover {
-      text-decoration: underline;
-      color: #ffe4b5;
-    }
-  </style>
 </head>
 <body class="home">
- <header>
-  <nav class="nav" aria-label="Main">
-    <!-- Removed Home link on homepage -->
-    <a href="gallery.html">Gallery</a>
-    <!-- Removed Acknowledgement from top nav -->
-    <div class="seasonal">
-      <a href="halloween.html">Seasonal ▾</a>
-      <div class="menu" role="menu" aria-label="Seasonal links">
-        <a href="halloween.html" role="menuitem">Halloween 🎃</a>
-        <a href="christmas.html" role="menuitem">Christmas 🎄</a>
-        <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
-        <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
-        <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
-        <a href="easter.html" role="menuitem">Easter 🐣</a>
+  <header>
+    <nav class="nav" aria-label="Main">
+      <!-- No HOME on homepage -->
+      <a href="gallery.html">Gallery</a>
+      <a href="acknowledgement.html" class="ack-link-nav">Acknowledgement</a>
+      <div class="seasonal">
+        <a href="halloween.html" class="seasonal-trigger" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+        <div class="menu" role="menu" aria-label="Seasonal links">
+          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+          <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+          <a href="easter.html" role="menuitem">Easter 🐣</a>
+        </div>
       </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="ForKeepSakes seasonal hero">
+      <img src="images/fall-image-logo.png" alt="ForKeepSakes main image" class="hero-logo" />
+      <div class="intro">
+        <h1>Welcome to ForKeepSakes</h1>
+        <p>Always Forward – Always ForKeepSakes</p>
+      </div>
+    </section>
+
+    <!-- Acknowledgement link under hero, left-aligned -->
+    <div class="ack-below-hero">
+      <a href="acknowledgement.html" class="ack-below-hero-link">Acknowledgement</a>
     </div>
-  </nav>
-</header>
 
-<section class="hero" aria-label="ForKeepSakes seasonal hero">
-  <img src="images/fall-image-logo.png" alt="ForKeepSakes main image"
-       style="width:500px; height:auto; object-fit:contain;" />
+    <section class="about" aria-label="About ForKeepSakes">
+      <h2>About ForKeepSakes</h2>
+      <p>
+        ForKeepSakes is more than woodworking — it’s about mental health, creativity,
+        and the courage to grow. Each project, from beginner builds to master-level designs,
+        represents a step forward in turning challenges into something lasting and beautiful.
+      </p>
+      <p>
+        Whether you’re an amateur picking up tools for the first time or a professional refining
+        your craft, ForKeepSakes is about embracing the process, not just the finished piece.
+        Through every cut, joint, and polish, we build not only keepsakes, but resilience,
+        confidence, and connection.
+      </p>
+    </section>
+  </main>
 
-  <div class="intro">
-    <h1>Welcome to ForKeepSakes</h1>
-    <p>Always Forward – Always ForKeepSakes</p>
-  </div>
-</section>
-
-<!-- Acknowledgement link moved below hero -->
-<div class="ack-link" style="text-align:center; margin-top:15px;">
-  <a href="acknowledgement.html" style="font-weight:bold; color:#4b2e1a; text-decoration:none;">
-    Acknowledgement
-  </a>
-</div>
-
-<section class="about" aria-label="About ForKeepSakes">
-  <h2>About ForKeepSakes</h2>
-  <p>
-    ForKeepSakes is more than woodworking — it’s about mental health, creativity, 
-    and the courage to grow. Each project, from beginner builds to master-level designs, 
-    represents a step forward in turning challenges into something lasting and beautiful.
-  </p>
-  <p>
-    Whether you’re an amateur picking up tools for the first time or a professional refining 
-    your craft, ForKeepSakes is about embracing the process, not just the finished piece. 
-    Through every cut, joint, and polish, we build not only keepsakes, but resilience, 
-    confidence, and connection. 
-  </p>
-</section>
-<script>
-  (function () {
-    const seasonal = document.querySelector('.seasonal');
-    if (!seasonal) return;
-
-    const trigger = seasonal.querySelector('a'); // the "Seasonal ▾" link
-    const menu    = seasonal.querySelector('.menu');
-
-    // Make it accessible
-    trigger.setAttribute('aria-haspopup', 'true');
-    trigger.setAttribute('aria-expanded', 'false');
-
-    // Toggle on tap/click
-    trigger.addEventListener('click', function (e) {
-      // Prevent navigating to halloween.html when tapping the label
-      e.preventDefault();
-
-      const isOpen = seasonal.classList.toggle('open');
-      trigger.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close if you click outside
-    document.addEventListener('click', function (e) {
-      if (!seasonal.contains(e.target)) {
-        if (seasonal.classList.contains('open')) {
-          seasonal.classList.remove('open');
-          trigger.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-
-    // Optional: close with Esc
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && seasonal.classList.contains('open')) {
-        seasonal.classList.remove('open');
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.focus();
-      }
-    });
-  })();
-</script>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
