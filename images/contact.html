@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - ForKeepSakes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.contact {
+      background: 
+        url("images/FKS-logo.png") center center / 33% no-repeat fixed,
+        url("images/oak-grain.png") center/cover no-repeat fixed;
+      /* Logo watermark stays fixed, oak-grain stays fixed */
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 120px auto 60px;
+      padding: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      text-align: center;
+      color: #333;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+
+    .contact-container h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .contact-container p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .contact-links {
+      margin-top: 25px;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 8px 12px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      background: var(--btn);
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .contact-links a:hover {
+      background: var(--btn-hover);
+    }
+  </style>
+</head>
+<body class="contact">
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="acknowledgement.html">Acknowledgement</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <div class="seasonal">
+        <a href="halloween.html" class="seasonal-trigger" aria-haspopup="true" aria-expanded="false">Seasonal ▾</a>
+        <div class="menu" role="menu">
+          <a href="halloween.html">Halloween 🎃</a>
+          <a href="christmas.html">Christmas 🎄</a>
+          <a href="valentines.html">Valentine’s ❤️</a>
+          <a href="mothers-day.html">Mother’s Day 🌸</a>
+          <a href="fathers-day.html">Father’s Day 🛠️</a>
+          <a href="easter.html">Easter 🐣</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-container">
+      <h1>Contact ForKeepSakes</h1>
+      <p>All feedback is welcome, and ForKeepSakes is grateful for the support of every visitor and supporter.</p>
+      <p>If you’d like to reach out directly, please email us below:</p>
+      
+      <div class="contact-links">
+        <a href="mailto:forkeepsakesfks@gmail.com">Email Us</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
