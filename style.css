@@ -223,3 +223,6 @@ a.btn {
 @media (max-width: 380px) {
   body { font-size: 17px; }
 }
+/* Mobile friendly dropdown fix */
+.seasonal > a { cursor: pointer; }     /* shows it’s tappable */
+.seasonal.open .menu { display: block; }  /* show the menu when .open is set */

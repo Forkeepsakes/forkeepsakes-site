@@ -17,40 +17,38 @@
 
   <!-- Homepage-only nav override -->
   <style>
- body.home header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), /* dark overlay */
-    url("images/oak-grain.png") center/cover no-repeat !important;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
+    body.home header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("images/oak-grain.png") center/cover no-repeat !important;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
+    body.home .nav a {
+      color: #f5f0e6;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 4px 0;
+    }
 
-   body.home .nav a {
-  color: #f5f0e6; /* cream / coffee with creamer */
-  font-weight: bold;
-  text-decoration: none;
-  padding: 4px 0;
-}
-
-body.home .nav a:hover {
-  text-decoration: underline;
-  color: #ffe4b5; /* light warm highlight (like latte foam) */
-}
-
+    body.home .nav a:hover {
+      text-decoration: underline;
+      color: #ffe4b5;
+    }
   </style>
 </head>
 <body class="home">
  <header>
   <nav class="nav" aria-label="Main">
-    <a href="index.html">Home</a>
+    <!-- Removed Home link on homepage -->
     <a href="gallery.html">Gallery</a>
-    <a href="acknowledgement.html">Acknowledgement</a>
+    <!-- Removed Acknowledgement from top nav -->
     <div class="seasonal">
       <a href="halloween.html">Seasonal ▾</a>
       <div class="menu" role="menu" aria-label="Seasonal links">
@@ -65,8 +63,6 @@ body.home .nav a:hover {
   </nav>
 </header>
 
-
-
 <section class="hero" aria-label="ForKeepSakes seasonal hero">
   <img src="images/fall-image-logo.png" alt="ForKeepSakes main image"
        style="width:500px; height:auto; object-fit:contain;" />
@@ -76,6 +72,13 @@ body.home .nav a:hover {
     <p>Always Forward – Always ForKeepSakes</p>
   </div>
 </section>
+
+<!-- Acknowledgement link moved below hero -->
+<div class="ack-link" style="text-align:center; margin-top:15px;">
+  <a href="acknowledgement.html" style="font-weight:bold; color:#4b2e1a; text-decoration:none;">
+    Acknowledgement
+  </a>
+</div>
 
 <section class="about" aria-label="About ForKeepSakes">
   <h2>About ForKeepSakes</h2>
@@ -91,6 +94,47 @@ body.home .nav a:hover {
     confidence, and connection. 
   </p>
 </section>
+<script>
+  (function () {
+    const seasonal = document.querySelector('.seasonal');
+    if (!seasonal) return;
+
+    const trigger = seasonal.querySelector('a'); // the "Seasonal ▾" link
+    const menu    = seasonal.querySelector('.menu');
+
+    // Make it accessible
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    // Toggle on tap/click
+    trigger.addEventListener('click', function (e) {
+      // Prevent navigating to halloween.html when tapping the label
+      e.preventDefault();
+
+      const isOpen = seasonal.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close if you click outside
+    document.addEventListener('click', function (e) {
+      if (!seasonal.contains(e.target)) {
+        if (seasonal.classList.contains('open')) {
+          seasonal.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // Optional: close with Esc
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && seasonal.classList.contains('open')) {
+        seasonal.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
