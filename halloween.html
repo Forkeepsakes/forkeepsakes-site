@@ -159,21 +159,28 @@
         <h2>📖 Ghouls Night Out — Full Book ($2)</h2>
         <img src="images/cover.png" alt="Ghouls Night Out Full Book Cover">
         <p>Includes <strong>10 spooky-fun coloring pages</strong> in high resolution.</p>
-        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank" style="margin-top:8px;">
-          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book (PDF)">
-          <input type="hidden" name="amount" value="2.00">
-          <input type="hidden" name="currency_code" value="USD">
-          <!-- After purchase, redirect to the full optimized PDF -->
-          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out_Web_Optimized.pdf">
-          <!-- If they cancel, bring them back here -->
-          <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
-          <button type="submit" class="btn">💳 Buy 10-Page PDF – $2</button>
-        </form>
+       <!-- PayPal Hosted Button (Full Book) -->
+<div id="paypal-container-87DBTC7VJT9M6"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.paypal && paypal.HostedButtons) {
+      paypal.HostedButtons({
+        hostedButtonId: "87DBTC7VJT9M6",
+      }).render("#paypal-container-87DBTC7VJT9M6");
+    }
+  });
+</script>
+
         <div class="note">After checkout, you’ll be redirected to your PDF download.</div>
       </div>
     </div>
   </section>
 
   <div class="bat-divider">🦇 🦇 🦇</div>
+  <!-- PayPal SDK (load once at end of body) -->
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAymoJtDvlW0pVKEiY6twO5QhpqSh-ta885lV2cUxTsMNSmFHY14hP95CKGN-NphAS-Lo6lXuKIsth2V4&components=hosted-buttons&enable-funding=venmo&currency=USD">
+</script>
+
 </body>
 </html>
