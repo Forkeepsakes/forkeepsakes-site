@@ -6,17 +6,8 @@
   <title>Halloween - ForKeepSakes</title>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BJ0QLEBZ49');
-  </script>
-
   <style>
-    /* 🎃 Halloween-only background */
+    /* Halloween background */
     body {
       background:
         repeating-linear-gradient(
@@ -27,12 +18,12 @@
         ),
         url("images/oak-grain.png") center/cover fixed no-repeat;
       color: #fff8e7;
-      padding-top: 160px; /* nav + banner */
-      overflow-x: hidden;
+      padding-top: 160px;
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      overflow-x: hidden;
     }
 
-    /* Green banner under nav */
+    /* Banner */
     .h-banner {
       position: fixed;
       top: 52px;
@@ -48,11 +39,12 @@
     }
     .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
+    /* Content section */
     section { text-align:center; padding:48px 20px; }
-    h1 { color:#ffb347; margin:0 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
-    p  { margin:0 0 18px; color:#ffdcb3; }
+    h1 { color:#ffb347; margin:0 0 20px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+    p  { color:#ffdcb3; margin:0 0 18px; }
 
-    /* 🎃 Themed buttons */
+    /* Button theme */
     .btn {
       background-color:#c25a12;
       color:#fff;
@@ -69,23 +61,44 @@
     }
     .btn:hover { background:#ff7a1a; }
     .btn:active { transform:translateY(1px); }
+
+    /* Side by side layout */
+    .book-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .book-box {
+      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .book-box img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
-  <!-- Global nav -->
+  <!-- Nav -->
   <header>
     <nav class="nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <div class="seasonal">
         <a href="halloween.html" aria-current="page">Seasonal ▾</a>
-        <div class="menu" role="menu" aria-label="Seasonal links">
-          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
-          <a href="christmas.html" role="menuitem">Christmas 🎄</a>
-          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
-          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
-          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
-          <a href="easter.html" role="menuitem">Easter 🐣</a>
+        <div class="menu">
+          <a href="halloween.html">Halloween 🎃</a>
+          <a href="christmas.html">Christmas 🎄</a>
+          <a href="valentines.html">Valentine’s ❤️</a>
+          <a href="mothers-day.html">Mother’s Day 🌸</a>
+          <a href="fathers-day.html">Father’s Day 🛠️</a>
+          <a href="easter.html">Easter 🐣</a>
         </div>
       </div>
       <a href="acknowledgement.html">Acknowledgement</a>
@@ -102,22 +115,32 @@
   <!-- Main content -->
   <section>
     <h1>Ghouls Night Out Coloring Book</h1>
-    <p>Enjoy this seasonal keepsake — available as an instant digital download.</p>
+    <p>Choose from a free sample preview or grab the full instant download below.</p>
 
-    <!-- Preview Sampler -->
-    <a href="downloads/Ghouls_Night_Out_Sampler.pdf" target="_blank" class="btn">
-      👀 Preview Sample Pages
-    </a>
+    <div class="book-section">
+      <!-- Left: Sampler -->
+      <div class="book-box">
+        <h2>👀 Preview Sampler</h2>
+        <p>Get a sneak peek at a few pages from the book.</p>
+        <a href="downloads/Ghouls_Night_Out_Sampler.pdf" target="_blank" class="btn">
+          View Sample Pages
+        </a>
+      </div>
 
-    <!-- PayPal Buy Button -->
-    <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank" style="margin-top:20px;">
-      <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book PDF">
-      <input type="hidden" name="amount" value="2.00">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out.pdf">
-      <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
-      <button type="submit" class="btn">💳 Buy Now – $2</button>
-    </form>
+      <!-- Right: Full Book -->
+      <div class="book-box">
+        <h2>📖 Full Coloring Book</h2>
+        <img src="images/ghouls-cover.jpg" alt="Ghouls Night Out Cover">
+        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank">
+          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book PDF">
+          <input type="hidden" name="amount" value="2.00">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out.pdf">
+          <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
+          <button type="submit" class="btn">💳 Buy Now – $2</button>
+        </form>
+      </div>
+    </div>
   </section>
 </body>
 </html>
