@@ -6,8 +6,17 @@
   <title>Halloween - ForKeepSakes</title>
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BJ0QLEBZ49');
+  </script>
+
   <style>
-    /* Halloween background */
+    /* 🎃 Halloween-only background */
     body {
       background:
         repeating-linear-gradient(
@@ -18,12 +27,12 @@
         ),
         url("images/oak-grain.png") center/cover fixed no-repeat;
       color: #fff8e7;
-      padding-top: 160px;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      padding-top: 160px; /* nav + banner */
       overflow-x: hidden;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
     }
 
-    /* Banner */
+    /* Banner under nav */
     .h-banner {
       position: fixed;
       top: 52px;
@@ -39,12 +48,11 @@
     }
     .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
-    /* Content section */
     section { text-align:center; padding:48px 20px; }
-    h1 { color:#ffb347; margin:0 0 20px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
-    p  { color:#ffdcb3; margin:0 0 18px; }
+    h1 { color:#ffb347; margin:0 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+    p  { margin:0 0 18px; color:#ffdcb3; }
 
-    /* Button theme */
+    /* 🎃 Themed buttons */
     .btn {
       background-color:#c25a12;
       color:#fff;
@@ -62,43 +70,47 @@
     .btn:hover { background:#ff7a1a; }
     .btn:active { transform:translateY(1px); }
 
-    /* Side by side layout */
+    /* Cards grid */
     .book-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+      align-items: start;
     }
     .book-box {
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.30);
       padding: 20px;
       border-radius: 12px;
-      width: 320px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      text-align: center;
     }
+    .book-box h2 { margin: 6px 0 8px; color:#ffe0b5; }
+    .book-box p  { margin: 0 0 10px; color:#ffdcb3; }
     .book-box img {
       max-width: 100%;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.35);
     }
+    .note { font-size: .95rem; opacity: .9; margin-top: 6px; }
   </style>
 </head>
 <body>
-  <!-- Nav -->
+  <!-- Global nav -->
   <header>
     <nav class="nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <div class="seasonal">
         <a href="halloween.html" aria-current="page">Seasonal ▾</a>
-        <div class="menu">
-          <a href="halloween.html">Halloween 🎃</a>
-          <a href="christmas.html">Christmas 🎄</a>
-          <a href="valentines.html">Valentine’s ❤️</a>
-          <a href="mothers-day.html">Mother’s Day 🌸</a>
-          <a href="fathers-day.html">Father’s Day 🛠️</a>
-          <a href="easter.html">Easter 🐣</a>
+        <div class="menu" role="menu" aria-label="Seasonal links">
+          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+          <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+          <a href="easter.html" role="menuitem">Easter 🐣</a>
         </div>
       </div>
       <a href="acknowledgement.html">Acknowledgement</a>
@@ -115,30 +127,46 @@
   <!-- Main content -->
   <section>
     <h1>Ghouls Night Out Coloring Book</h1>
-    <p>Choose from a free sample preview or grab the full instant download below.</p>
+    <p>Preview the samples or grab the full instant download below.</p>
 
     <div class="book-section">
-      <!-- Left: Sampler -->
+      <!-- 1) Original Halloween Sampler (left) -->
       <div class="book-box">
-        <h2>👀 Preview Sampler</h2>
-        <p>Get a sneak peek at a few pages from the book.</p>
-        <a href="downloads/Ghouls_Night_Out_Sampler.pdf" target="_blank" class="btn">
-          View Sample Pages
-        </a>
+        <h2>🎃 Halloween Sampler (Free)</h2>
+        <img src="images/halloween_sampler_cover.jpg" alt="Halloween Sampler Cover">
+        <div>
+          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" class="btn">Preview</a>
+          <a href="downloads/halloween_sampler_complete.pdf" download class="btn">Download</a>
+        </div>
       </div>
 
-      <!-- Right: Full Book -->
+      <!-- 2) Ghouls Night Out Sampler (middle) -->
       <div class="book-box">
-        <h2>📖 Full Coloring Book</h2>
-        <img src="images/ghouls-cover.jpg" alt="Ghouls Night Out Cover">
-        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank">
-          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book PDF">
+        <h2>👀 Ghouls Night Out — Sample (Free)</h2>
+        <img src="images/cover.png" alt="Ghouls Night Out Sample Cover">
+        <div>
+          <a href="downloads/Ghouls_Night_Out_Sampler.pdf" target="_blank" class="btn">View Sample Pages</a>
+        </div>
+      </div>
+
+      <!-- 3) Ghouls Night Out Full Book (right, $2) -->
+      <div class="book-box">
+        <h2>📖 Ghouls Night Out — Full Book ($2)</h2>
+        <img src="images/cover.png" alt="Ghouls Night Out Full Book Cover">
+        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank" style="margin-top:8px;">
+          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book (PDF)">
           <input type="hidden" name="amount" value="2.00">
           <input type="hidden" name="currency_code" value="USD">
-          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out.pdf">
+
+          <!-- After purchase, send to the full optimized PDF -->
+          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out_Web_Optimized.pdf">
+
+          <!-- If they cancel, bring them back here -->
           <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
+
           <button type="submit" class="btn">💳 Buy Now – $2</button>
         </form>
+        <div class="note">After checkout, you’ll be redirected to your PDF download.</div>
       </div>
     </div>
   </section>
