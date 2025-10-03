@@ -15,85 +15,165 @@
     gtag('config', 'G-BJ0QLEBZ49');
   </script>
 
- <style>
-  /* 🎃 Halloween-only background: pumpkin ridges */
-  body {
-    background:
-      repeating-linear-gradient(
-        90deg,
-        #ff7a1a 0px,
-        #ff9d3f 60px,
-        #ff7a1a 120px
-      ),
-      url("images/oak-grain.png") center/cover fixed no-repeat;
-    color: #fff8e7;
-    padding-top: 160px; /* nav + banner */
-    overflow-x: hidden;
-    font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  }
+  <style>
+    /* 🎃 Halloween-only background: pumpkin ridges + oak grain */
+    body {
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #ff7a1a 0px,
+          #ff9d3f 60px,
+          #ff7a1a 120px
+        ),
+        url("images/oak-grain.png") center/cover fixed no-repeat;
+      color: #fff8e7;
+      padding-top: 160px; /* nav (80ish) + banner (about 80) */
+      overflow-x: hidden;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
 
-  /* Banner */
-  .h-banner {
-    position: fixed;
-    top: 52px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 22px 12px;
-    background: linear-gradient(90deg, #0b3d0b, #1f6d1f, #0b3d0b);
-    color: #fff8e7;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    z-index: 900;
-  }
-  .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
+    /* Green banner under the global nav */
+    .h-banner {
+      position: fixed;
+      top: 52px; /* sits below your fixed header from style.css */
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 22px 12px;
+      background: linear-gradient(90deg, #0b3d0b, #1f6d1f, #0b3d0b);
+      color: #fff8e7;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      z-index: 900; /* header in style.css uses 1000 */
+    }
+    .h-banner .sub { display:block; font-weight:400; opacity:.9; margin-top:4px; }
 
-  /* Content */
-  section { text-align:center; padding:48px 20px; position:relative; z-index:1 }
-  h1 { color:#ffb347; margin:0 0 10px; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
-  p  { margin:0 0 18px; color:#ffdcb3; }
+    /* Main content spacing */
+    section { text-align:center; padding:48px 20px; position:relative; z-index:1; }
+    p  { margin:0 0 18px; color:#ffdcb3; }
 
-  /* Book previews layout */
-  .book-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  .book-box {
-    background: rgba(0,0,0,0.4);
-    border-radius: 10px;
-    padding: 16px;
-    width: 280px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    text-align: center;
-  }
-  .book-box img {
-    max-width: 100%;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
+    /* Cards layout */
+    .book-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 28px;
+      align-items: start;
+      justify-items: center;
+    }
+    .book-box {
+      background: rgba(0,0,0,0.40);
+      border-radius: 10px;
+      padding: 16px;
+      width: 280px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .book-box h2 { font-size: 1.15rem; margin: 4px 0 8px; color: #ffe4b5; }
+    .book-box p  { font-size: 0.95rem; color: #fff; margin: 0 0 10px; }
+    .book-box img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-  /* Buttons */
-  .btn {
-    background-color:#c25a12;
-    color:#fff;
-    border:none;
-    padding:12px 18px;
-    margin:10px 0;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:background-color .25s, transform .1s;
-    display:inline-block;
-    text-decoration:none;
-    box-shadow:0 8px 22px rgba(0,0,0,.25);
-  }
-  .btn:hover { background:#ff7a1a }
-  .btn:active { transform:translateY(1px) }
+    /* Buttons */
+    .btn {
+      background-color:#c25a12;
+      color:#fff;
+      border:none;
+      padding:12px 18px;
+      margin:10px 6px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background-color .25s, transform .1s;
+      display:inline-block;
+      text-decoration:none;
+      box-shadow:0 8px 22px rgba(0,0,0,.25);
+    }
+    .btn:hover { background:#ff7a1a; }
+    .btn:active { transform:translateY(1px); }
+    .note { font-size:0.85rem; margin-top:6px; color:#ffdcb3; }
 
-  .note { font-size:0.85rem; margin-top:6px; color:#ffdcb3; }
-</style>
+    /* Cute divider */
+    .bat-divider { text-align:center; margin:28px auto; font-size:24px; opacity:.9; user-select:none; }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Global nav (trimmed on this page: no Acknowledgement / Contact) -->
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <div class="seasonal">
+        <a href="halloween.html" aria-current="page">Seasonal ▾</a>
+        <div class="menu" role="menu" aria-label="Seasonal links">
+          <a href="halloween.html" role="menuitem">Halloween 🎃</a>
+          <a href="christmas.html" role="menuitem">Christmas 🎄</a>
+          <a href="valentines.html" role="menuitem">Valentine’s ❤️</a>
+          <a href="mothers-day.html" role="menuitem">Mother’s Day 🌸</a>
+          <a href="fathers-day.html" role="menuitem">Father’s Day 🛠️</a>
+          <a href="easter.html" role="menuitem">Easter 🐣</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="h-banner">
+    <div>Happy Halloween 🎃</div>
+    <span class="sub">Spooky keepsakes, cozy vibes, and a little bit of magic.</span>
+  </section>
+
+  <!-- Main content -->
+  <section>
+    <p>Preview our samplers or grab the full spooky collection below.</p>
+
+    <div class="book-row">
+      <!-- 1) Original Halloween Sampler (Free) -->
+      <div class="book-box">
+        <h2>🎃 Halloween Sampler (Free)</h2>
+        <img src="images/halloween_sampler_cover.jpg" alt="Halloween Sampler Cover">
+        <div>
+          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" class="btn">👀 Preview</a>
+          <a href="downloads/halloween_sampler_complete.pdf" download class="btn">⬇️ Download Free</a>
+        </div>
+      </div>
+
+      <!-- 2) Ghouls Night Out Sampler (Free) -->
+      <div class="book-box">
+        <h2>👀 Ghouls Night Out — Sample (Free)</h2>
+        <img src="images/cover.png" alt="Ghouls Night Out Sampler Cover">
+        <div>
+          <a href="downloads/Ghouls_Night_Out_Sampler.pdf#page=1" target="_blank" class="btn">👀 Preview</a>
+          <a href="downloads/Ghouls_Night_Out_Sampler.pdf" download class="btn">⬇️ Download Free</a>
+        </div>
+      </div>
+
+      <!-- 3) Ghouls Night Out Full Book ($2) -->
+      <div class="book-box">
+        <h2>📖 Ghouls Night Out — Full Book ($2)</h2>
+        <img src="images/cover.png" alt="Ghouls Night Out Full Book Cover">
+        <p>Includes <strong>10 spooky-fun coloring pages</strong> in high resolution.</p>
+        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank" style="margin-top:8px;">
+          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book (PDF)">
+          <input type="hidden" name="amount" value="2.00">
+          <input type="hidden" name="currency_code" value="USD">
+          <!-- After purchase, redirect to the full optimized PDF -->
+          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out_Web_Optimized.pdf">
+          <!-- If they cancel, bring them back here -->
+          <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
+          <button type="submit" class="btn">💳 Buy 10-Page PDF – $2</button>
+        </form>
+        <div class="note">After checkout, you’ll be redirected to your PDF download.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bat-divider">🦇 🦇 🦇</div>
+</body>
+</html>
