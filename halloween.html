@@ -15,6 +15,11 @@
     gtag('config', 'G-BJ0QLEBZ49');
   </script>
 
+  <!-- PayPal SDK (only needs to be loaded once on the page) -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAAymoJtDvlW0pVKEiY6twO5QhpqSh-ta885lV2cUxTsMNSmFHY14hP95CKGN-NphAS-Lo6lXuKIsth2V4&components=hosted-buttons&enable-funding=venmo&currency=USD">
+  </script>
+
   <style>
     /* 🎃 Halloween-only background: pumpkin ridges + oak grain */
     body {
@@ -137,43 +142,4 @@
       <!-- 1) Original Halloween Sampler (Free) -->
       <div class="book-box">
         <h2>🎃 Halloween Sampler (Free)</h2>
-        <img src="images/halloween_sampler_cover.jpg" alt="Halloween Sampler Cover">
-        <div>
-          <a href="downloads/halloween_sampler_complete.pdf#page=1" target="_blank" class="btn">👀 Preview</a>
-          <a href="downloads/halloween_sampler_complete.pdf" download class="btn">⬇️ Download Free</a>
-        </div>
-      </div>
-
-      <!-- 2) Ghouls Night Out Sampler (Free) -->
-      <div class="book-box">
-        <h2>👀 Ghouls Night Out — Sample (Free)</h2>
-        <img src="images/cover.png" alt="Ghouls Night Out Sampler Cover">
-        <div>
-          <a href="downloads/Ghouls_Night_Out_Sampler.pdf#page=1" target="_blank" class="btn">👀 Preview</a>
-          <a href="downloads/Ghouls_Night_Out_Sampler.pdf" download class="btn">⬇️ Download Free</a>
-        </div>
-      </div>
-
-      <!-- 3) Ghouls Night Out Full Book ($2) -->
-      <div class="book-box">
-        <h2>📖 Ghouls Night Out — Full Book ($2)</h2>
-        <img src="images/cover.png" alt="Ghouls Night Out Full Book Cover">
-        <p>Includes <strong>10 spooky-fun coloring pages</strong> in high resolution.</p>
-        <form action="https://www.paypal.com/ncp/payment/your-business-id" method="post" target="_blank" style="margin-top:8px;">
-          <input type="hidden" name="item_name" value="Ghouls Night Out Coloring Book (PDF)">
-          <input type="hidden" name="amount" value="2.00">
-          <input type="hidden" name="currency_code" value="USD">
-          <!-- After purchase, redirect to the full optimized PDF -->
-          <input type="hidden" name="return" value="https://yourwebsite.com/downloads/Ghouls_Night_Out_Web_Optimized.pdf">
-          <!-- If they cancel, bring them back here -->
-          <input type="hidden" name="cancel_return" value="https://yourwebsite.com/halloween.html">
-          <button type="submit" class="btn">💳 Buy 10-Page PDF – $2</button>
-        </form>
-        <div class="note">After checkout, you’ll be redirected to your PDF download.</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="bat-divider">🦇 🦇 🦇</div>
-</body>
-</html>
+        <img src="images/halloween_sample_
