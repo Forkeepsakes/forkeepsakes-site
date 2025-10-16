@@ -590,6 +590,6 @@ body.create {
 }
 
 .create-intro {
-  margin-top: 40px;  /* was 80px — moves section upward */
+  margin-top: 10px;  /* was 80px — moves section upward */
   margin-bottom: 40px;
 }
