@@ -583,3 +583,13 @@ body.create,
   .coffee-btn { font-size: .95rem; padding: 8px 16px; }
   .coffee-btn .cup-body { font-size: 1.2rem; }
 }
+/* ====== CREATE PAGE INTRO POSITION TWEAK ====== */
+body.create {
+  /* the rest of your site uses 80px, we can trim it here */
+  padding-top: 60px !important;
+}
+
+.create-intro {
+  margin-top: 40px;  /* was 80px — moves section upward */
+  margin-bottom: 40px;
+}
