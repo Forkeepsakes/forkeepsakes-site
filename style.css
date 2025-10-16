@@ -34,3 +34,34 @@ body { padding-top: 80px; }
 
 /* 7) Safety: block modal backdrop scroll when open (if you reuse modals later) */
 .modal.show { overflow: hidden; }
+/* ===== Hotfix: restore wood header + nav (paste at END) ===== */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: url("images/oak-grain.png") center / cover no-repeat !important;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+
+/* Show the nav as a flex row */
+.nav {
+  display: flex !important;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Ensure links are visible on the wood background */
+.nav a {
+  color: var(--nav-link) !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Ensure seasonal dropdown is hidden but doesn't nuke the whole nav */
+.seasonal { display: none !important; }
+
+/* Make space for the fixed header */
+body { padding-top: 80px !important; }
+@media (max-width: 700px) { body { padding-top: 72px !important; } }
