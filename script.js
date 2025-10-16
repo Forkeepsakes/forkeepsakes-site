@@ -1,4 +1,4 @@
-/* ====== ForKeepSakes Core Scripts (2025-10-16) ====== */
+/* ====== ForKeepSakes Core Scripts ====== */
 
 // Smooth scroll for in-page anchors (optional polish)
 document.addEventListener('click', function (e) {

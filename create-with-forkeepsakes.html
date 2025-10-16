@@ -9,7 +9,6 @@
 <body>
   <header>
     <nav class="nav" aria-label="Main">
-      <!-- Other pages nav: includes Home -->
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="create-with-forkeepsakes.html" aria-current="page">Create</a>
@@ -27,16 +26,16 @@
     </section>
 
     <!-- Toolbar -->
-    <section class="create-toolbar">
-      <div class="toolbar wrap">
+    <section class="create-toolbar wrap">
+      <div class="toolbar">
         <input type="search" id="q" placeholder="Search coloring pages, puzzles, templates…" oninput="filterCards()" />
         <div class="chips">
           <button class="chip" data-tag="coloring" onclick="toggleTag(this)">Coloring</button>
-          <button class="chip" data-tag="puzzle" onclick="toggleTag(this)">Puzzles</button>
-          <button class="chip" data-tag="kids" onclick="toggleTag(this)">Kids</button>
-          <button class="chip" data-tag="adult" onclick="toggleTag(this)">Adults</button>
+          <button class="chip" data-tag="puzzle"   onclick="toggleTag(this)">Puzzles</button>
+          <button class="chip" data-tag="kids"     onclick="toggleTag(this)">Kids</button>
+          <button class="chip" data-tag="adult"    onclick="toggleTag(this)">Adults</button>
           <button class="chip" data-tag="seasonal" onclick="toggleTag(this)">Seasonal</button>
-          <button class="chip" data-tag="howto" onclick="toggleTag(this)">How-To</button>
+          <button class="chip" data-tag="howto"    onclick="toggleTag(this)">How-To</button>
         </div>
       </div>
     </section>
@@ -51,7 +50,7 @@
           <div class="meta">PDF • 1 page • Family-friendly</div>
           <div class="row">
             <a class="btn primary" href="/assets/pdfs/pumpkin-sampler.pdf" download>Download</a>
-            <a class="btn ghost" href="/assets/pdfs/pumpkin-sampler.pdf" target="_blank">Preview</a>
+            <a class="btn ghost"   href="/assets/pdfs/pumpkin-sampler.pdf" target="_blank">Preview</a>
           </div>
         </div>
       </article>
@@ -64,7 +63,7 @@
           <div class="meta">PDF • 1 page • Modern inspirational</div>
           <div class="row">
             <a class="btn primary" href="/assets/pdfs/wordsearch-growth-renewal.pdf" download>Download</a>
-            <a class="btn ghost" href="/assets/pdfs/wordsearch-growth-renewal.pdf" target="_blank">Preview</a>
+            <a class="btn ghost"   href="/assets/pdfs/wordsearch-growth-renewal.pdf" target="_blank">Preview</a>
           </div>
         </div>
       </article>
@@ -77,7 +76,7 @@
           <div class="meta">PDF • 13 pages • Print-ready</div>
           <div class="row">
             <a class="btn primary" href="/assets/pdfs/ghouls-night-out-full.pdf" download>Download</a>
-            <a class="btn ghost" href="/assets/pdfs/ghouls-night-out-full.pdf" target="_blank">Preview</a>
+            <a class="btn ghost"   href="/assets/pdfs/ghouls-night-out-full.pdf" target="_blank">Preview</a>
           </div>
           <div class="note">Formerly paid. Now free — enjoy and share. ❤️</div>
         </div>
@@ -90,28 +89,36 @@
     </section>
   </main>
 
-  <script src="script.js" defer></script>
-  <script>
-    // Filters (Create page only)
-    function normalize(s){ return (s||'').toLowerCase(); }
-    const activeTags = new Set();
-    function toggleTag(el){
-      const tag = el.getAttribute('data-tag');
-      const on = el.getAttribute('data-active') === 'true';
-      if (on){ el.removeAttribute('data-active'); activeTags.delete(tag); }
-      else { el.setAttribute('data-active','true'); activeTags.add(tag); }
-      filterCards();
+<script src="script.js" defer></script>
+<script>
+  /* Create page filters */
+  function normalize(s){ return (s||'').toLowerCase(); }
+  const activeTags = new Set();
+
+  function toggleTag(el){
+    const tag = el.getAttribute('data-tag');
+    const on = el.getAttribute('data-active') === 'true';
+    if (on){
+      el.removeAttribute('data-active');
+      activeTags.delete(tag);
+    } else {
+      el.setAttribute('data-active','true');
+      activeTags.add(tag);
     }
-    function filterCards(){
-      const q = normalize(document.getElementById('q').value);
-      document.querySelectorAll('.card').forEach(card=>{
-        const title = normalize(card.getAttribute('data-title'));
-        const tags = normalize(card.getAttribute('data-tags'));
-        const qOk = !q || title.includes(q);
-        const tOk = !activeTags.size || Array.from(activeTags).every(t => tags.includes(t));
-        card.style.display = (qOk && tOk) ? 'flex' : 'none';
-      });
-    }
-  </script>
+    filterCards();
+  }
+
+  function filterCards(){
+    const qEl = document.getElementById('q');
+    const q = qEl ? normalize(qEl.value) : '';
+    document.querySelectorAll('.card').forEach(card => {
+      const title = normalize(card.getAttribute('data-title'));
+      const tags  = normalize(card.getAttribute('data-tags'));
+      const qOk = !q || title.includes(q);
+      const tOk = !activeTags.size || Array.from(activeTags).every(t => tags.includes(t));
+      card.style.display = (qOk && tOk) ? 'flex' : 'none';
+    });
+  }
+</script>
 </body>
 </html>

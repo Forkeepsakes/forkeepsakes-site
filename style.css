@@ -1,24 +1,261 @@
-/* ===== FINAL NAV COLOR FIX (Cream link tone) ===== */
+/* =========================
+   GLOBAL THEME & RESET
+========================= */
+:root {
+  --bg-fallback: #111;
+  --text: #f5f0e6;
+  --accent: #ffb347;
 
-/* Default link color */
+  /* Nav */
+  --nav-link: #f5f0e6;       /* cream */
+  --nav-link-hover: #ffe4b5; /* warm highlight */
+
+  /* Buttons */
+  --btn: #333;
+  --btn-hover: #555;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; min-height: 100%; }
+html, body { overflow-x: hidden; }
+
+/* =========================
+   BASE
+========================= */
+body {
+  color: var(--text);
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  font-size: 16px;
+
+  /* Global page background */
+  background: url("images/oak-grain.png") center center / cover fixed no-repeat, var(--bg-fallback);
+
+  /* Make room for fixed header */
+  padding-top: 80px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+button { font: inherit; cursor: pointer; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================
+   GLOBAL WOOD-GRAIN NAV (ALL PAGES)
+========================= */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: url("images/oak-grain.png") center / cover no-repeat;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Ensure link color overrides UA defaults */
 .nav a,
 .nav a:link,
 .nav a:visited {
-  color: #f5f0e6 !important; /* soft cream */
-  text-decoration: none !important;
+  color: var(--nav-link);
+  text-decoration: none;
+  font-weight: 700;
 }
-
-/* Hover + focus states */
 .nav a:hover,
 .nav a:focus-visible {
-  color: #ffe4b5 !important; /* warm highlight */
-  text-decoration: underline !important;
+  color: var(--nav-link-hover);
+  text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-/* Active page indicator */
+/* Old seasonal dropdown removed */
+.seasonal { display: none !important; }
+.menu { display: none !important; }
+
+/* =========================
+   HERO / ABOUT (Home)
+========================= */
+.hero {
+  display: grid;
+  place-items: center;
+  min-height: 55vh;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero img { max-width: min(500px, 92vw); object-fit: contain; }
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+  color: var(--text);
+  text-shadow: 2px 2px 6px rgba(0,0,0,.7);
+}
+.intro p { font-size: 1.25rem; margin: 0; opacity: .9; }
+
+.about {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+  line-height: 1.65;
+}
+.about h2 {
+  font-size: 2rem;
+  margin: 0 0 20px;
+  color: var(--accent);
+  text-shadow: 1px 1px 4px rgba(0,0,0,.6);
+}
+.about p {
+  font-size: 1.1rem;
+  margin: 0 0 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn,
+a.btn {
+  background: var(--btn);
+  color: #fff;
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: .5rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: background .2s ease, transform .1s ease, box-shadow .2s;
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+}
+.btn:hover, a.btn:hover { background: var(--btn-hover); }
+.btn:active, a.btn:active { transform: translateY(1px); }
+
+/* =========================
+   MODAL (kept for future)
+========================= */
+.modal { position: fixed; inset: 0; display: none; z-index: 2000; }
+.modal.show { display: block; overflow: hidden; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.modal-content {
+  position: relative; margin: 5vh auto; max-width: 90vw; max-height: 90vh;
+  background: #000; padding: .5rem; border-radius: 12px;
+  display: flex; justify-content: center; align-items: center;
+}
+.modal-content img { max-width: 100%; max-height: 85vh; }
+.modal-close {
+  position: absolute; top: 6px; right: 8px;
+  border: 0; background: #fff; width: 32px; height: 32px;
+  border-radius: 50%; font-size: 20px; cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 700px) {
+  header { padding: 8px 12px; }
+  .nav { gap: 12px; flex-wrap: wrap; }
+  body { padding-top: 72px; }
+}
+@media (max-width: 560px) {
+  .sample-actions { align-items: center; }
+}
+@media (max-width: 380px) {
+  body { font-size: 17px; }
+}
+
+/* =========================
+   CREATE PAGE STYLES
+========================= */
+
+/* Container helper */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero text on Create page */
+.create-hero { text-align: left; }
+.create-hero .intro h1 { font-size: 2.4rem; margin-bottom: .35rem; }
+.create-hero .lead { color: #e9e3d8; opacity: .9; }
+
+/* Toolbar: search + chips */
+.create-toolbar { margin: 8px 0 10px; }
+.toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.toolbar input[type="search"]{
+  flex: 1 1 280px; width: 100%;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1px solid #2b2b2b; background: rgba(17,17,17,.85);
+  color: var(--text);
+}
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  border: 1px solid #2b2b2b; background: rgba(20,20,20,.9);
+  color: var(--text); opacity: .85;
+  padding: 8px 12px; border-radius: 999px;
+  cursor: pointer; user-select: none; font-weight: 700;
+}
+.chip[data-active="true"]{ border-color: var(--accent); opacity: 1; }
+
+/* Grid + cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; padding: 10px 0 50px;
+}
+.card {
+  background: linear-gradient(180deg, #1b1b1b, #141414);
+  border: 1px solid #262626; border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; min-height: 240px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.thumb {
+  position: relative; aspect-ratio: 3/2;
+  background: #0f0f0f; display: grid; place-items: center;
+  font-weight: 800; color: #f0e9de; letter-spacing: .25px;
+}
+.badge {
+  position: absolute; left: 10px; top: 10px;
+  padding: 6px 10px; border-radius: 999px; font-size: 12px;
+  background: #0d3b22; color: #bdf7d5; border: 1px solid #1e5d3e;
+}
+.body { padding: 14px 14px 12px; display: grid; gap: 8px; }
+.title { font-size: 1rem; font-weight: 800; color: var(--text); }
+.meta { font-size: .95rem; color: #dccfbd; opacity: .9; }
+.row { display: flex; gap: 8px; }
+
+/* Buttons inside cards – reuse core .btn look */
+.create .btn,
+.grid .btn {
+  background: var(--btn); color: #fff; border: 1px solid #2a2a2a;
+  padding: 10px 12px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; display: inline-block;
+}
+.create .btn.primary, .grid .btn.primary {
+  border-color: #2f6b3d; background: linear-gradient(180deg, #12321f, #0e2417);
+}
+.create .btn.ghost, .grid .btn.ghost { color: #e6e6e6; background: rgba(20,20,20,.85); }
+
+/* Notes and support box */
+.note { font-size: .9rem; color: #e9e3d8; opacity: .9; }
+.support {
+  margin: 8px 0 60px; padding: 18px;
+  border-radius: 14px; border: 1px dashed #2a2a2a;
+  background: rgba(19,19,19,.85);
+}
+.pill { display:inline-block; padding: 4px 8px; border-radius: 999px;
+  border: 1px solid #2b2b2b; margin-right: 6px; font-size: .85rem; }
+a.inline { color: #9ef3c1; text-decoration: underline; }
+
+/* Current page indicator */
 .nav a[aria-current="page"] {
-  color: #ffe4b5 !important;
-  text-decoration: underline !important;
+  color: var(--nav-link-hover);
+  text-decoration: underline;
   text-underline-offset: 3px;
 }
