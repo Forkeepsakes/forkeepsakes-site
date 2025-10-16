@@ -1,67 +1,77 @@
-/* ==== FKS NAV + PAGE TWEAKS (2025-10-16) ==== */
+/* ====== CREATE PAGE STYLES (2025-10-16) ====== */
 
-/* 1) Hide the old Seasonal dropdown globally (we removed those links site-wide). */
-.seasonal { display: none !important; }
+/* Container helper (optional) */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-/* 2) Make the nav feel balanced now that Seasonal is gone; keep nice spacing on wrap. */
-.nav {
-  gap: 20px;                 /* a touch more breathing room */
-  flex-wrap: wrap;           /* keeps it tidy on smaller widths */
+/* Hero text on Create page */
+.create-hero { text-align: left; }
+.create-hero .intro h1 { font-size: 2.4rem; margin-bottom: .35rem; }
+.create-hero .lead { color: #e9e3d8; opacity: .9; }
+
+/* Toolbar: search + chips */
+.create-toolbar { margin: 8px 0 10px; }
+.toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.toolbar input[type="search"]{
+  flex: 1 1 280px; width: 100%;
+  padding: 12px 14px; border-radius: 12px;
+  border: 1px solid #2b2b2b; background: rgba(17,17,17,.85);
+  color: var(--text);
 }
-
-/* 3) Current page indicator using aria-current for accessibility */
-.nav a[aria-current="page"] {
-  color: var(--nav-link-hover);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  opacity: 1;
+.chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  border: 1px solid #2b2b2b; background: rgba(20,20,20,.9);
+  color: var(--text); opacity: .85;
+  padding: 8px 12px; border-radius: 999px;
+  cursor: pointer; user-select: none; font-weight: 700;
 }
+.chip[data-active="true"]{ border-color: var(--accent); opacity: 1; }
 
-/* 4) Ensure fixed header offset is consistent on all pages */
-body { padding-top: 80px; }
-@media (max-width: 700px) {
-  body { padding-top: 72px; }
+/* Grid + cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; padding: 10px 0 50px; }
+.card {
+  background: linear-gradient(180deg, #1b1b1b, #141414);
+  border: 1px solid #262626; border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column; min-height: 240px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
 }
-
-/* 5) Small hover/focus polish for nav (works on keyboard + mouse) */
-.nav a:hover,
-.nav a:focus-visible {
-  color: var(--nav-link-hover);
+.thumb {
+  position: relative; aspect-ratio: 3/2;
+  background: #0f0f0f; display: grid; place-items: center;
+  font-weight: 800; color: #f0e9de; letter-spacing: .25px;
 }
-
-/* 6) Make sure hero image scales well on narrow screens */
-.hero img, .hero-logo { max-width: min(520px, 92vw); }
-
-/* 7) Safety: block modal backdrop scroll when open (if you reuse modals later) */
-.modal.show { overflow: hidden; }
-/* ===== Hotfix: restore wood header + nav (paste at END) ===== */
-header {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  padding: 10px 20px;
-  background: url("images/oak-grain.png") center / cover no-repeat !important;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,.35);
+.badge {
+  position: absolute; left: 10px; top: 10px;
+  padding: 6px 10px; border-radius: 999px; font-size: 12px;
+  background: #0d3b22; color: #bdf7d5; border: 1px solid #1e5d3e;
 }
+.body { padding: 14px 14px 12px; display: grid; gap: 8px; }
+.title { font-size: 1rem; font-weight: 800; color: var(--text); }
+.meta { font-size: .95rem; color: #dccfbd; opacity: .9; }
+.row { display: flex; gap: 8px; }
 
-/* Show the nav as a flex row */
-.nav {
-  display: flex !important;
-  align-items: center;
-  gap: 18px;
+/* Buttons inside cards – reinforce your existing .btn style */
+.create .btn,
+.grid .btn { 
+  background: var(--btn); color: #fff; border: 1px solid #2a2a2a;
+  padding: 10px 12px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; display: inline-block;
 }
-
-/* Ensure links are visible on the wood background */
-.nav a {
-  color: var(--nav-link) !important;
-  text-decoration: none;
-  font-weight: 700;
+.create .btn.primary, .grid .btn.primary {
+  border-color: #2f6b3d; background: linear-gradient(180deg, #12321f, #0e2417);
 }
+.create .btn.ghost, .grid .btn.ghost { color: #e6e6e6; background: rgba(20,20,20,.85); }
 
-/* Ensure seasonal dropdown is hidden but doesn't nuke the whole nav */
-.seasonal { display: none !important; }
+/* Notes and support box */
+.note { font-size: .9rem; color: #e9e3d8; opacity: .9; }
+.support {
+  margin: 8px 0 60px; padding: 18px;
+  border-radius: 14px; border: 1px dashed #2a2a2a;
+  background: rgba(19,19,19,.85);
+}
+.pill { display:inline-block; padding: 4px 8px; border-radius: 999px;
+  border: 1px solid #2b2b2b; margin-right: 6px; font-size: .85rem; }
+a.inline { color: #9ef3c1; text-decoration: underline; }
 
-/* Make space for the fixed header */
-body { padding-top: 80px !important; }
-@media (max-width: 700px) { body { padding-top: 72px !important; } }
+/* Responsive */
+@media (max-width: 900px){ .create-hero { text-align: center; } }
