@@ -329,3 +329,76 @@ body.create,
 @media (max-width: 700px) {
   .create { background: linear-gradient(180deg, #122918, #0b160d); }
 }
+/* ====== CREATE PAGE METALLIC SHEEN (subtle) ====== */
+
+/* Reusable sheen keyframes */
+@keyframes fksSheen {
+  0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
+  35%  { opacity: .20; }
+  60%  { opacity: .10; }
+  100% { transform: translateX(220%) skewX(-12deg); opacity: 0; }
+}
+
+/* Sheen on cards */
+.create .card {
+  position: relative;
+  overflow: hidden; /* keep sheen clipped to card */
+}
+.create .card::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -40%;
+  width: 60%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.08) 45%,
+    rgba(255,255,255,.22) 50%,
+    rgba(255,255,255,.08) 55%,
+    rgba(255,255,255,0) 100%
+  );
+  filter: blur(1px);
+  pointer-events: none;
+  transform: translateX(-120%) skewX(-12deg);
+  animation: fksSheen 4.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* Sheen on buttons (a touch stronger on hover) */
+.create .btn {
+  position: relative;
+  overflow: hidden;
+}
+.create .btn::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -80%;
+  width: 65%;
+  height: 220%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,.08) 45%,
+    rgba(255,255,255,.26) 50%,
+    rgba(255,255,255,.08) 55%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  pointer-events: none;
+  animation: fksSheen 5.5s ease-in-out infinite;
+  animation-delay: .6s;
+}
+.create .btn:hover::after {
+  animation-duration: 2.2s;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .create .card::after,
+  .create .btn::after {
+    animation: none !important;
+  }
+}
