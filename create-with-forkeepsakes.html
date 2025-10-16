@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create with ForKeepSakes</title>
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --card: #1a1a1a;
+      --ink: #f3f3f3;
+      --muted: #b3b3b3;
+      --accent: #16a34a; /* forest green vibe */
+      --accent2: #b91c1c; /* lava red */
+      --accent3: #3f2e1f; /* bark brown */
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 1200px at 100% 0%, #121212, var(--bg)); color: var(--ink); }
+    header { padding: 32px 20px 12px; max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 6px; letter-spacing: .3px; font-size: 2rem; }
+    p.lead { margin: 0; color: var(--muted); }
+
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; padding: 16px 20px; max-width: 1100px; margin: 0 auto; }
+    .search { flex: 1 1 280px; }
+    input[type="search"] { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #2b2b2b; background: #121212; color: var(--ink); }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { border: 1px solid #2b2b2b; background: #141414; color: var(--muted); padding: 8px 12px; border-radius: 999px; cursor: pointer; user-select: none; }
+    .chip[data-active="true"] { border-color: var(--accent); color: var(--ink); }
+
+    .grid { padding: 10px 20px 60px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .card { background: linear-gradient(180deg, #1b1b1b, var(--card)); border: 1px solid #262626; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .thumb { aspect-ratio: 3/2; background: #101010; display: grid; place-items: center; font-weight: 600; color: #d6d6d6; letter-spacing: .3px; }
+    .badge { position: absolute; margin: 10px; padding: 6px 10px; border-radius: 999px; font-size: 12px; background: #0d3b22; color: #9ef3c1; border: 1px solid #1e5d3e; }
+    .body { padding: 14px 14px 12px; display: grid; gap: 8px; }
+    .title { font-size: 1rem; font-weight: 700; }
+    .meta { font-size: .85rem; color: var(--muted); }
+    .row { display: flex; gap: 8px; }
+    .btn { flex: 1; text-align: center; padding: 10px 12px; border-radius: 10px; border: 1px solid #2a2a2a; background: #141414; color: var(--ink); text-decoration: none; font-weight: 600; }
+    .btn.primary { border-color: var(--accent); background: linear-gradient(180deg, #12321f, #0e2417); }
+    .btn.ghost { color: var(--muted); }
+    footer { max-width: 1100px; margin: 0 auto 40px; padding: 0 20px; color: var(--muted); font-size: .9rem; }
+    .note { margin-top: 6px; font-size: .85rem; color: var(--muted); }
+    .pill { display:inline-block; padding: 4px 8px; border-radius: 999px; border: 1px solid #2b2b2b; margin-right: 6px; font-size: .8rem; }
+    .support { margin-top: 28px; padding: 16px; border-radius: 14px; border: 1px dashed #2a2a2a; background: #131313; }
+    a.inline { color: #9ef3c1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Create with ForKeepSakes</h1>
+    <p class="lead">One cozy spot for printable activities, coloring pages, puzzles, and maker mini‑projects. Seasonal sets live here too—no more scattered pages.</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <input type="search" id="q" placeholder="Search coloring pages, puzzles, templates…" oninput="filterCards()" />
+    </div>
+    <div class="filters">
+      <div class="chip" data-tag="coloring" onclick="toggleTag(this)">Coloring</div>
+      <div class="chip" data-tag="puzzle" onclick="toggleTag(this)">Puzzles</div>
+      <div class="chip" data-tag="kids" onclick="toggleTag(this)">Kids</div>
+      <div class="chip" data-tag="adult" onclick="toggleTag(this)">Adults</div>
+      <div class="chip" data-tag="seasonal" onclick="toggleTag(this)">Seasonal</div>
+      <div class="chip" data-tag="howto" onclick="toggleTag(this)">How‑To</div>
+    </div>
+  </div>
+
+  <main class="grid" id="grid">
+    <!-- EXAMPLE CARD: duplicate and swap the data-* attributes + links as you add items. -->
+    <article class="card" data-tags="coloring kids seasonal" data-title="Pumpkin Sampler Coloring Page">
+      <div class="thumb">
+        <span class="badge">Free</span>
+        Pumpkin Sampler
+      </div>
+      <div class="body">
+        <div class="title">Pumpkin Sampler Coloring Page</div>
+        <div class="meta">PDF • 1 page • Family‑friendly</div>
+        <div class="row">
+          <a class="btn primary" href="#" download>Download</a>
+          <a class="btn ghost" href="#">Preview</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-tags="puzzle adult" data-title="Word Search – Growth & Renewal">
+      <div class="thumb">
+        Word Search
+      </div>
+      <div class="body">
+        <div class="title">Word Search – Growth & Renewal</div>
+        <div class="meta">PDF • 1 page • Modern inspirational</div>
+        <div class="row">
+          <a class="btn primary" href="#" download>Download</a>
+          <a class="btn ghost" href="#">Preview</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-tags="coloring adult seasonal" data-title="Ghouls Night Out – Sampler">
+      <div class="thumb">
+        Ghouls Night Out (Sampler)
+      </div>
+      <div class="body">
+        <div class="title">Ghouls Night Out – Sampler</div>
+        <div class="meta">PDF • 3 pages • Excerpt</div>
+        <div class="row">
+          <a class="btn primary" href="#" download>Download</a>
+          <a class="btn ghost" href="#">Preview</a>
+        </div>
+        <div class="note">The full book is now free. ❤️ Enjoy!</div>
+      </div>
+    </article>
+
+    <!-- Add more cards here as you publish items -->
+  </main>
+
+  <footer>
+    <div class="support">
+      <strong>Support the site</strong>
+      <p class="note">If you enjoy these free printables, you can tip or share our work. It helps us make more. <a class="inline" href="#">Learn how</a>.</p>
+      <span class="pill">No ads</span>
+      <span class="pill">No paywalls</span>
+      <span class="pill">Always Forward</span>
+    </div>
+  </footer>
+
+  <script>
+    function normalize(s){ return (s||"").toLowerCase(); }
+    let activeTags = new Set();
+    function toggleTag(el){
+      const tag = el.getAttribute('data-tag');
+      if (el.getAttribute('data-active') === 'true') { el.removeAttribute('data-active'); activeTags.delete(tag); }
+      else { el.setAttribute('data-active','true'); activeTags.add(tag); }
+      filterCards();
+    }
+    function filterCards(){
+      const q = normalize(document.getElementById('q').value);
+      const cards = Array.from(document.querySelectorAll('.card'));
+      cards.forEach(card => {
+        const title = normalize(card.getAttribute('data-title'));
+        const tags = normalize(card.getAttribute('data-tags'));
+        const matchesQuery = !q || title.includes(q);
+        const matchesTags = !activeTags.size || Array.from(activeTags).every(t => tags.includes(t));
+        card.style.display = (matchesQuery && matchesTags) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
