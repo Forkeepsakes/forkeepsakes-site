@@ -433,3 +433,153 @@ body.create,
   color: #90ff90;
   text-shadow: 0 0 6px rgba(0,255,0,0.3);
 }
+/* ====== COFFEE SUPPORT BUTTON ====== */
+.coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: url("images/oak-grain.png") center/cover no-repeat, #2b1a0d;
+  color: #f5f0e6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 0 8px rgba(0,255,0,0.1);
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* cup body & handle (simple icon shape) */
+.coffee-btn .cup-body {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.coffee-btn .cup-handle {
+  width: 10px;
+  height: 14px;
+  border: 3px solid #f5f0e6;
+  border-left: none;
+  border-radius: 0 50% 50% 0;
+  position: relative;
+  left: -6px;
+  top: 1px;
+}
+
+/* glowing accent + hover sheen */
+.coffee-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6), 0 0 10px rgba(0,255,0,0.15);
+  background: linear-gradient(145deg, #2f4728, #1a301b);
+  text-shadow: 0 0 6px rgba(144,255,144,0.4);
+}
+
+/* subtle animated shimmer across button */
+@keyframes coffeeShine {
+  0%   { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+  35%  { opacity: .25; }
+  100% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+}
+.coffee-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.25) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-120%) skewX(-20deg);
+  animation: coffeeShine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.coffee-text {
+  font-weight: 700;
+  color: #90ff90;
+  text-shadow: 0 0 6px rgba(0,255,0,0.25);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .coffee-btn { font-size: .95rem; padding: 8px 16px; }
+  .coffee-btn .cup-body { font-size: 1.2rem; }
+}
+/* ====== COFFEE SUPPORT BUTTON ====== */
+.coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: url("images/oak-grain.png") center/cover no-repeat, #2b1a0d;
+  color: #f5f0e6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 0 8px rgba(0,255,0,0.1);
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* cup body & handle (simple icon shape) */
+.coffee-btn .cup-body {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.coffee-btn .cup-handle {
+  width: 10px;
+  height: 14px;
+  border: 3px solid #f5f0e6;
+  border-left: none;
+  border-radius: 0 50% 50% 0;
+  position: relative;
+  left: -6px;
+  top: 1px;
+}
+
+/* glowing accent + hover sheen */
+.coffee-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6), 0 0 10px rgba(0,255,0,0.15);
+  background: linear-gradient(145deg, #2f4728, #1a301b);
+  text-shadow: 0 0 6px rgba(144,255,144,0.4);
+}
+
+/* subtle animated shimmer across button */
+@keyframes coffeeShine {
+  0%   { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+  35%  { opacity: .25; }
+  100% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+}
+.coffee-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.25) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-120%) skewX(-20deg);
+  animation: coffeeShine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.coffee-text {
+  font-weight: 700;
+  color: #90ff90;
+  text-shadow: 0 0 6px rgba(0,255,0,0.25);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .coffee-btn { font-size: .95rem; padding: 8px 16px; }
+  .coffee-btn .cup-body { font-size: 1.2rem; }
+}
