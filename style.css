@@ -259,3 +259,73 @@ a.inline { color: #9ef3c1; text-decoration: underline; }
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+/* ====== CREATE PAGE METALLIC HUNTER GREEN THEME ====== */
+body.create,
+.create {
+  background: radial-gradient(circle at 40% 20%, #1a3620 0%, #0d1b10 100%);
+  color: #f5f0e6; /* cream text */
+}
+
+/* Cards use oak-grain texture */
+.create .card {
+  background: url("images/oak-grain.png") center / cover no-repeat, #1a1a1a;
+  border: 1px solid #26432b;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+/* Card titles and meta text */
+.create .title,
+.create .meta,
+.create .note {
+  color: #f5f0e6;
+}
+
+/* Buttons styled with oak-grain pattern and metallic depth */
+.create .btn {
+  background: url("images/oak-grain.png") center / cover no-repeat;
+  border: 1px solid #1f3323;
+  color: #f5f0e6;
+  text-shadow: 0 0 6px rgba(180,255,180,0.4);
+  box-shadow: inset 0 0 10px rgba(0,255,0,0.1), 0 2px 8px rgba(0,0,0,0.4);
+}
+.create .btn:hover {
+  box-shadow: inset 0 0 14px rgba(0,255,0,0.25), 0 2px 8px rgba(0,0,0,0.5);
+  transform: translateY(-1px);
+}
+
+/* Accent highlights – “old monitor green” glow */
+.create .badge,
+.create .chip[data-active="true"],
+.create .btn.primary {
+  background: #0f260f;
+  border-color: #4cff4c;
+  color: #90ff90;
+  text-shadow: 0 0 6px #00ff00;
+  box-shadow: 0 0 10px rgba(0,255,0,0.15);
+}
+
+/* Inactive chips subtle */
+.create .chip {
+  border: 1px solid #355a38;
+  background: rgba(25,40,25,.8);
+  color: #c8c8b8;
+}
+
+/* Search box */
+.create input[type="search"] {
+  background: rgba(10,20,10,.8);
+  border: 1px solid #355a38;
+  color: #f5f0e6;
+}
+
+/* Support box */
+.create .support {
+  border: 1px dashed #315a37;
+  background: rgba(12,22,12,.85);
+  color: #f5f0e6;
+}
+
+/* Responsive tweak */
+@media (max-width: 700px) {
+  .create { background: linear-gradient(180deg, #122918, #0b160d); }
+}
