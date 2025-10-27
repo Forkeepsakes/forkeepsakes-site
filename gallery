@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery • ForKeepSakes</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Page-specific polish */
+    body.gallery {
+      /* uses your global oak-grain bg; optional soft overlay for readability */
+      position: relative;
+    }
+    .gallery-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .gallery-hero {
+      display: grid;
+      gap: 14px;
+      text-align: center;
+      background: linear-gradient(160deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 26px 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      backdrop-filter: blur(3px);
+    }
+    .gallery-hero h1 {
+      margin: 2px 0 6px;
+      font-size: 2rem;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+    .gallery-hero p {
+      margin: 0;
+      font-size: 1.08rem;
+      opacity: 0.95;
+    }
+
+    /* Decorative divider */
+    .divider {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 10px;
+      margin: 18px auto 6px;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    }
+    .leaf {
+      font-size: 1.15rem;
+      opacity: 0.9;
+    }
+
+    /* Call-to-action buttons */
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .cta-row .btn { font-weight: 800; }
+
+    /* Placeholder grid frame (invisible for now, just a tasteful frame) */
+    .placeholder {
+      margin-top: 26px;
+      border: 1px dashed rgba(255,255,255,0.25);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      opacity: 0.9;
+    }
+    .placeholder p { margin: 6px 0; }
+
+    /* Soft shimmer line */
+    .shimmer {
+      height: 8px;
+      margin: 14px auto 0;
+      max-width: 360px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.05)
+      );
+      animation: galleryShine 2.8s ease-in-out infinite;
+    }
+    @keyframes galleryShine {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.35); }
+      100% { filter: brightness(1); }
+    }
+
+    @media (max-width: 700px) {
+      .gallery-hero h1 { font-size: 1.7rem; }
+      .gallery-hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body class="gallery">
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <!-- Omit Gallery on this page -->
+      <a href="create-with-forkeepsakes.html">Create</a>
+      <a href="acknowledgement.html">Acknowledgement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-wrap" aria-label="ForKeepSakes Gallery">
+      <div class="gallery-hero" role="region" aria-label="Gallery coming soon">
+        <h1>Gallery Coming Soon</h1>
+        <p>
+          This space will showcase builds, small carvings, and keepsakes —
+          from first cuts to final finishes. We’re preparing photos, stories,
+          and purchase options so you can bring a little ForKeepSakes home.
+        </p>
+
+        <div class="divider" aria-hidden="true">
+          <span class="leaf">🍂</span>
+        </div>
+
+        <p>
+          Thank you for visiting and supporting this journey. Please check back
+          periodically — new items will be added as they’re completed.
+        </p>
+
+        <div class="cta-row" aria-label="Helpful links">
+          <a class="btn" href="create-with-forkeepsakes.html">Explore Free Downloads</a>
+          <a class="btn" href="https://tiktok.com/@forkeepsakesfks" target="_blank" rel="noopener">Follow on TikTok</a>
+          <a class="btn" href="contact.html">Get in Touch</a>
+        </div>
+
+        <div class="placeholder" aria-hidden="true">
+          <p class="note">Future layout preview: a clean grid of featured builds and stories will appear here.</p>
+          <div class="shimmer"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
