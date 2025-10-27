@@ -79,9 +79,7 @@ header {
   text-underline-offset: 2px;
 }
 
-/* Old seasonal dropdown removed */
-.seasonal { display: none !important; }
-.menu { display: none !important; }
+
 
 /* =========================
    HERO / ABOUT (Home)
