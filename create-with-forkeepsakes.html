@@ -6,34 +6,31 @@
   <title>Create with ForKeepSakes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="create">
   <header>
     <nav class="nav" aria-label="Main">
-  <a href="index.html">Home</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="acknowledgement.html">Acknowledgement</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="acknowledgement.html">Acknowledgement</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main class="create">
-   <!-- Top intro section -->
-<section class="create-intro wrap" aria-label="Create with ForKeepSakes Intro">
-  <h1 class="create-heading">Creating with ForKeepSakes</h1>
-  <p class="create-sub">
-    Every download on this page is <strong>completely free</strong> — made to inspire, teach, and spark creativity.  
-    Tips, shares, or kind words are never expected, but always appreciated. They help us keep crafting, teaching, and giving back. 💚
-  </p> 
-<a href="https://www.buymeacoffee.com/YOUR-LINK-HERE"
-   target="_blank"
-   class="coffee-btn"
-   aria-label="Support the Craft">
-  Support the Craft
-</a>
-
-</section>
-
+  <main>
+    <!-- Top intro section -->
+    <section class="create-intro wrap" aria-label="Create with ForKeepSakes Intro">
+      <h1 class="create-heading">Creating with ForKeepSakes</h1>
+      <p class="create-sub">
+        Every download on this page is <strong>completely free</strong> — made to inspire, teach, and spark creativity.
+        Tips, shares, or kind words are never expected, but always appreciated. They help us keep crafting, teaching, and giving back. 💚
+      </p>
+      <a href="https://www.buymeacoffee.com/YOUR-LINK-HERE"
+         target="_blank"
+         class="coffee-btn"
+         aria-label="Support the Craft">
+        Support the Craft
+      </a>
+    </section>
 
     <!-- Toolbar -->
     <section class="create-toolbar wrap">
@@ -59,8 +56,8 @@
           <div class="title">Pumpkin Sampler Coloring Page</div>
           <div class="meta">PDF • 1 page • Family-friendly</div>
           <div class="row">
-            <a class="btn primary" href="/assets/pdfs/pumpkin-sampler.pdf" download>Download</a>
-            <a class="btn ghost"   href="/assets/pdfs/pumpkin-sampler.pdf" target="_blank">Preview</a>
+            <a class="btn primary" href="assets/pdfs/pumpkin-sampler.pdf" download>Download</a>
+            <a class="btn ghost"   href="assets/pdfs/pumpkin-sampler.pdf" target="_blank">Preview</a>
           </div>
         </div>
       </article>
@@ -72,8 +69,8 @@
           <div class="title">Word Search – Growth & Renewal</div>
           <div class="meta">PDF • 1 page • Modern inspirational</div>
           <div class="row">
-            <a class="btn primary" href="/assets/pdfs/wordsearch-growth-renewal.pdf" download>Download</a>
-            <a class="btn ghost"   href="/assets/pdfs/wordsearch-growth-renewal.pdf" target="_blank">Preview</a>
+            <a class="btn primary" href="assets/pdfs/wordsearch-growth-renewal.pdf" download>Download</a>
+            <a class="btn ghost"   href="assets/pdfs/wordsearch-growth-renewal.pdf" target="_blank">Preview</a>
           </div>
         </div>
       </article>
@@ -85,50 +82,51 @@
           <div class="title">Ghouls Night Out — Full Book (Free)</div>
           <div class="meta">PDF • 13 pages • Print-ready</div>
           <div class="row">
-            <a class="btn primary" href="/assets/pdfs/ghouls-night-out-full.pdf" download>Download</a>
-            <a class="btn ghost"   href="/assets/pdfs/ghouls-night-out-full.pdf" target="_blank">Preview</a>
+            <a class="btn primary" href="assets/pdfs/ghouls-night-out-full.pdf" download>Download</a>
+            <a class="btn ghost"   href="assets/pdfs/ghouls-night-out-full.pdf" target="_blank">Preview</a>
           </div>
           <div class="note">Formerly paid. Now free — enjoy and share. ❤️</div>
         </div>
       </article>
     </section>
 
-    <section class="support wrap">
+    <!-- Support anchor for deep-links from Contact page -->
+    <section class="support wrap" id="support">
       <strong>Support the site</strong>
       <p class="note">If you enjoy these free printables, share our work or leave a kind comment on TikTok. It helps us make more.</p>
     </section>
   </main>
 
-<script src="script.js" defer></script>
-<script>
-  /* Create page filters */
-  function normalize(s){ return (s||'').toLowerCase(); }
-  const activeTags = new Set();
+  <script src="script.js" defer></script>
+  <script>
+    /* Create page filters */
+    function normalize(s){ return (s||'').toLowerCase(); }
+    const activeTags = new Set();
 
-  function toggleTag(el){
-    const tag = el.getAttribute('data-tag');
-    const on = el.getAttribute('data-active') === 'true';
-    if (on){
-      el.removeAttribute('data-active');
-      activeTags.delete(tag);
-    } else {
-      el.setAttribute('data-active','true');
-      activeTags.add(tag);
+    function toggleTag(el){
+      const tag = el.getAttribute('data-tag');
+      const on = el.getAttribute('data-active') === 'true';
+      if (on){
+        el.removeAttribute('data-active');
+        activeTags.delete(tag);
+      } else {
+        el.setAttribute('data-active','true');
+        activeTags.add(tag);
+      }
+      filterCards();
     }
-    filterCards();
-  }
 
-  function filterCards(){
-    const qEl = document.getElementById('q');
-    const q = qEl ? normalize(qEl.value) : '';
-    document.querySelectorAll('.card').forEach(card => {
-      const title = normalize(card.getAttribute('data-title'));
-      const tags  = normalize(card.getAttribute('data-tags'));
-      const qOk = !q || title.includes(q);
-      const tOk = !activeTags.size || Array.from(activeTags).every(t => tags.includes(t));
-      card.style.display = (qOk && tOk) ? 'flex' : 'none';
-    });
-  }
-</script>
+    function filterCards(){
+      const qEl = document.getElementById('q');
+      const q = qEl ? normalize(qEl.value) : '';
+      document.querySelectorAll('.card').forEach(card => {
+        const title = normalize(card.getAttribute('data-title'));
+        const tags  = normalize(card.getAttribute('data-tags'));
+        const qOk = !q || title.includes(q);
+        const tOk = !activeTags.size || Array.from(activeTags).every(t => tags.includes(t));
+        card.style.display = (qOk && tOk) ? 'flex' : 'none';
+      });
+    }
+  </script>
 </body>
 </html>
