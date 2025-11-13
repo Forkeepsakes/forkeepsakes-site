@@ -1,19 +1,19 @@
-/* ====== ForKeepSakes Core Scripts ====== */
+// Auto-update footer year
+document.getElementById("year").textContent = new Date().getFullYear();
 
-// Smooth scroll for in-page anchors (optional polish)
-document.addEventListener('click', function (e) {
-  const link = e.target.closest('a[href^="#"]');
-  if (!link) return;
-  const target = document.querySelector(link.getAttribute('href'));
-  if (target) {
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
-});
+// Simple scroll-reveal
+const reveals = document.querySelectorAll(".reveal");
 
-// Automatically add aria-current="page" based on current URL
-document.querySelectorAll('.nav a').forEach(link => {
-  if (link.href === window.location.href) {
-    link.setAttribute('aria-current', 'page');
-  }
-});
+const onScroll = () => {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  reveals.forEach((el) => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add("visible");
+    }
+  });
+};
+
+window.addEventListener("scroll", onScroll);
+window.addEventListener("load", onScroll);

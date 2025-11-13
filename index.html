@@ -1,58 +1,273 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home • ForKeepSakes</title>
-  <meta name="description" content="ForKeepSakes: woodworking, creativity, and always moving forward. Free printables, builds, and behind-the-scenes craft." />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-BJ0QLEBZ49');
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForKeepSakes · Always Forward</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts (optional, safe to keep or swap later) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" 
+    rel="stylesheet"
+  >
 </head>
-<body class="home">
-  <header>
-  <nav class="nav" aria-label="Main">
-  <a href="gallery.html">Gallery</a>
-  <a href="create-with-forkeepsakes.html">Create</a>
-  <a href="acknowledgement.html">Acknowledgement</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-
+<body>
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-mark">FKS</span>
+        <span class="logo-text">ForKeepSakes</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#hero">Home</a>
+        <a href="#journey">Journey</a>
+        <a href="#creations">Wood & Art</a>
+        <a href="#echo">Echo</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" aria-label="ForKeepSakes hero">
-      <img src="images/fall-image-logo.png" alt="ForKeepSakes logo with autumn theme" class="hero-logo" />
-      <div class="intro">
-        <h1>Welcome to ForKeepSakes</h1>
-        <p>Always Forward – Always ForKeepSakes</p>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text reveal">
+        <p class="eyebrow">Always Forward · Always ForKeepSakes</p>
+        <h1>
+          Wood, Digital Art, & Stories<br />
+          <span class="hero-highlight">crafted for the journey.</span>
+        </h1>
+        <p class="hero-subtitle">
+          ForKeepSakes is my living workshop: boxes and carvings, AI art and Echo animations,
+          late-night experiments and family memories — all in one creator hub.
+        </p>
+        <div class="hero-actions">
+          <a href="#journey" class="btn primary">Explore the Journey</a>
+          <a href="#creations" class="btn ghost">See the Builds</a>
+        </div>
+        <p class="hero-note">
+          TikTok: <span>@forkeepsakesfks</span> · Website, woodshop, and wild ideas working together.
+        </p>
       </div>
-    </section>
+      <div class="hero-visual reveal">
+        <!-- Placeholder card for Echo / art preview -->
+        <div class="hero-card">
+          <div class="hero-card-tag">Featured</div>
+          <h2>Echo · Wood Spirit of ForKeepSakes</h2>
+          <p>
+            A feline, living-metal guardian watching over the workshop and the world below.
+            Animated clips, lore, and experiments live here.
+          </p>
+          <a href="#echo" class="hero-card-link">Meet Echo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="about" aria-label="About ForKeepSakes">
-      <h2>About ForKeepSakes</h2>
-      <p>
-        ForKeepSakes is more than woodworking — it’s about mental health, creativity,
-        and the courage to grow. Each project, from beginner builds to master-level designs,
-        represents a step forward in turning challenges into something lasting and beautiful.
+  <!-- Journey / About -->
+  <section id="journey" class="section section-alt">
+    <div class="container reveal">
+      <h2>The Journey So Far</h2>
+      <p class="section-intro">
+        This isn’t just a portfolio. It’s a timeline of recovery, discovery, and creation.
+        From learning joinery to carving turtles, from shop jigs to digital milestones —
+        ForKeepSakes is the story of building a life around making.
       </p>
-      <p>
-        Whether you’re an amateur picking up tools for the first time or a professional refining
-        your craft, ForKeepSakes is about embracing the process, not just the finished piece.
-        Through every cut, joint, and polish, we build not only keepsakes, but resilience,
-        confidence, and connection.
-      </p>
-    </section>
-  </main>
 
-  <script src="script.js" defer></script>
+      <div class="journey-grid">
+        <div class="journey-card">
+          <h3>From Boxes to Stories</h3>
+          <p>
+            It started with one box for my Mom — a final resting place and a promise
+            to learn the craft properly. That project opened the door to keepsake boxes,
+            pine builds, and custom pieces that carry memory.
+          </p>
+        </div>
+        <div class="journey-card">
+          <h3>Woodshop & Healing</h3>
+          <p>
+            Between surgeries, elbow pain, and life storms, the shop became more than a room.
+            It’s where I test jigs, design new rigs, and prove to myself that slow progress
+            still counts as progress.
+          </p>
+        </div>
+        <div class="journey-card">
+          <h3>Family & The Path Ahead</h3>
+          <p>
+            My daughter Izzie, my partner Mike, and the spirit of my Mom are built
+            into this journey. This site is for them, for the people following along on TikTok,
+            and for anyone who needs a reminder to keep moving forward.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creations: Wood & Art -->
+  <section id="creations" class="section">
+    <div class="container reveal">
+      <h2>Wood, Fire, Resin, & Color</h2>
+      <p class="section-intro">
+        Keepsake boxes, carved turtles, digital prints, and experimental pieces.
+        This gallery will grow over time — a mix of sawdust and pixels.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Keepsake Boxes</h3>
+          <p>
+            Pine and hardwood boxes with clean joinery, woodburned geometry,
+            and color-stained details. Built as practice, therapy, and art.
+          </p>
+          <p class="card-tag">Woodworking · Joinery</p>
+        </article>
+
+        <article class="card">
+          <h3>Turtle & Element Projects</h3>
+          <p>
+            Carved shells, glass “water” inlays, and element-based designs
+            that blend carving, resin, and story. Each one a small world on a board.
+          </p>
+          <p class="card-tag">Carving · Resin</p>
+        </article>
+
+        <article class="card">
+          <h3>Digital & AI Art</h3>
+          <p>
+            Coloring books, dark fantasy Echo series, and Sora-powered
+            mini films stitched together in CapCut. Where the shop meets the screen.
+          </p>
+          <p class="card-tag">AI Art · Video</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Echo Section -->
+  <section id="echo" class="section section-alt">
+    <div class="container echo-grid reveal">
+      <div>
+        <h2>Echo · The Wood-Spirit Guide</h2>
+        <p class="section-intro">
+          Echo is a humanoid feline wood-spirit in living metal armor —
+          part guardian, part narrator, part sarcastic co-host for this whole adventure.
+        </p>
+        <p>
+          Here you’ll eventually find Echo’s lore, animated clips, and special sequences
+          that tie the space station, the workshop, and Earth together.
+        </p>
+        <ul class="echo-list">
+          <li>Short Sora video clips stitched and enhanced in CapCut</li>
+          <li>Witty but encouraging captions and scripts</li>
+          <li>Milestone celebrations (like the 2,500 hearts series)</li>
+        </ul>
+      </div>
+      <div class="echo-panel">
+        <div class="echo-label">Coming Soon</div>
+        <p>
+          A dedicated Echo gallery with video embeds, behind-the-scenes prompts,
+          and printable art will live here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tutorials / Resources -->
+  <section id="tutorials" class="section">
+    <div class="container reveal">
+      <h2>Free Tutorials & Resources</h2>
+      <p class="section-intro">
+        Short, honest tutorials for people who want to start — not just watch.
+        Expect simple, practical guides with minimal fluff.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Woodshop Basics</h3>
+          <p>Box joints, simple jigs, planer sleds, and carving practice projects.</p>
+          <p class="card-tag">In progress</p>
+        </article>
+        <article class="card">
+          <h3>Digital & TikTok</h3>
+          <p>How I film, edit, and engage without turning into a sales robot.</p>
+          <p class="card-tag">In progress</p>
+        </article>
+        <article class="card">
+          <h3>Downloads & Templates</h3>
+          <p>Printable geometry burn patterns, coloring pages, and more.</p>
+          <p class="card-tag">Coming soon</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop / CTA -->
+  <section id="shop" class="section section-alt">
+    <div class="container shop-layout reveal">
+      <div>
+        <h2>Shop · Support the Journey</h2>
+        <p class="section-intro">
+          Small digital downloads, coloring books, and eventually physical pieces.
+          Nothing spammy — just ways to support and own a piece of the story.
+        </p>
+        <p>
+          This section will connect to PayPal for simple purchases
+          and will grow as new projects are ready to share.
+        </p>
+      </div>
+      <div class="shop-panel">
+        <p><strong>Coming soon:</strong></p>
+        <ul>
+          <li><em>Ghouls Night Out</em> coloring book PDF</li>
+          <li>Printable Echo & wood-spirit art</li>
+          <li>Selected woodworking plans & templates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Acknowledgments -->
+  <section id="contact" class="section">
+    <div class="container reveal">
+      <h2>Contact & Acknowledgments</h2>
+      <p class="section-intro">
+        Have a question, idea, or just want to say you saw the journey on TikTok?
+        You can reach out and I’ll get back when I step away from the sawdust.
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <h3>Get in Touch</h3>
+          <p>Email: <a href="mailto:forkeepsakesfks@gmail.com">forkeepsakesfks@gmail.com</a></p>
+          <p>TikTok: <a href="https://tiktok.com/@forkeepsakesfks" target="_blank">@forkeepsakesfks</a></p>
+        </div>
+        <div>
+         <h3>Acknowledgments</h3>
+<p>
+  For my Mom, whose memory lives in every keepsake.<br />
+  For Mike, who keeps believing in this crazy plan.<br />
+  For Izzie, whose inspiration is the spark behind this whole adventure —
+  the reason I stepped out of my comfort zone to pursue my journey as a creator.
+</p>
+<p>Always forward.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> ForKeepSakes · Built one project at a time.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
