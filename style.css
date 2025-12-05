@@ -513,13 +513,15 @@ a:hover {
 
 /* you can customize these if you later set real background images */
 .thumb-pack1 {
-  /* example placeholder */
-  background: linear-gradient(135deg, #f4dcdc, #fff3d6);
+  background-image: url("ForKeepSakes_Digital_Library/Digital%20Art/Coloring%20Pages/Christmas_Pack_1_thumb.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .thumb-pack2 {
-  /* example placeholder */
-  background: linear-gradient(135deg, #dbe9ff, #f0f6ff);
+  background-image: url("ForKeepSakes_Digital_Library/Digital%20Art/Coloring%20Pages/Christmas_Pack_2_thumb.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .thumb-label {
