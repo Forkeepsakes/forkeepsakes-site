@@ -534,4 +534,15 @@ a:hover {
   align-items: center;
   margin-left: 1rem;
 }
+.support-button-area form img,
+.support-button-area form section {
+  display: none !important;
+}
+
+.pp-M5JNEEQY5ZF36 {
+  height: 2rem !important;
+  min-width: 8rem !important;
+  font-size: 0.9rem !important;
+  padding: 0 1rem !important;
+}
 
