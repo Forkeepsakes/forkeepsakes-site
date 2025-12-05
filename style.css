@@ -529,4 +529,9 @@ a:hover {
   text-align: center;
   font-weight: 500;
 }
+.support-button-area {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
 
