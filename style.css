@@ -115,6 +115,11 @@ a:hover {
   font-size: 1.6rem;
   color: var(--muted);
 }
+.logo-image {
+    height: 40px;     /* try 40px to start */
+    width: auto;      /* keeps proportions correct */
+    display: block;
+}
 
 
 .main-nav {
