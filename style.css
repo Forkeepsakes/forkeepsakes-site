@@ -97,8 +97,8 @@ a:hover {
 }
 
 .logo-mark {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 999px;
   background: radial-gradient(circle at 30% 20%, var(--accent-teal), var(--accent-green));
   display: flex;
@@ -110,9 +110,9 @@ a:hover {
 
 .logo-text {
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   color: var(--muted);
 }
 
@@ -532,8 +532,9 @@ a:hover {
 .support-button-area {
   display: flex;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: 4rem;   /* was 1rem */
 }
+
 .support-button-area form img,
 .support-button-area form section {
   display: none !important;
@@ -541,7 +542,7 @@ a:hover {
 
 .pp-M5JNEEQY5ZF36 {
   height: 2rem !important;
-  min-width: 8rem !important;
+  min-width: 6rem !important;
   font-size: 0.9rem !important;
   padding: 0 1rem !important;
 }
