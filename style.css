@@ -129,15 +129,16 @@ a:hover {
 .main-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.05rem;
+  gap: 0.65rem 1rem;          /* row gap, column gap */
   font-size: 0.92rem;
   justify-content: flex-end;
+  max-width: 720px;           /* prevents it from stretching too wide */
 }
 
 .main-nav a {
   color: var(--muted);
   position: relative;
-  padding-bottom: 0.2rem;
+  padding: 0.25rem 0;         /* gives breathing room vertically */
   white-space: nowrap;
 }
 
