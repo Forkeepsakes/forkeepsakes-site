@@ -1,27 +1,30 @@
 :root {
-  /* Base */
-  --bg: #06070a;
-  --surface: #121722;
-  --surface-2: #0d111a;
-  --text: #f4f5f7;
-  --muted: #b4bcc8;
-  --border: rgba(255, 255, 255, 0.08);
+  /* Light base */
+  --bg: #f6f1e6;          /* warm paper */
+  --surface: #fbf6ea;     /* card surface */
+  --surface-2: #efe5d2;   /* section alt */
+  --text: #2b241d;        /* deep brown text */
+  --muted: #5a4b3e;       /* softer brown */
+  --border: rgba(43, 36, 29, 0.14);
 
-  /* Brand accents (FKS) */
-  --green: #2f6f4e; /* forest */
-  --bark: #3a2a23;  /* bark */
-  --red: #b63b32;   /* lava */
-  --gold: #d8a63c;  /* goldenrod */
-  --teal: #3aa7a5;  /* teal highlight */
+  /* Brand: hunter greens + wood */
+  --green-900: #0e2a1f;
+  --green-800: #153828;
+  --green-700: #1f4d37;   /* hunter */
+  --green-600: #2a6446;
+
+  --wood-900: #2b241d;
+  --wood-700: #5a4b3e;
+  --wood-400: #cbb79a;
 
   /* UI mapping */
-  --accent: var(--teal);
-  --accent-2: var(--gold);
+  --accent: var(--green-700);
+  --accent-2: var(--green-600);
 
   /* Shape + shadow */
   --radius-lg: 18px;
   --radius-xl: 24px;
-  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+  --shadow-soft: 0 18px 40px rgba(43, 36, 29, 0.12);
 }
 
 /* ---------- Global resets ---------- */
@@ -39,11 +42,10 @@ html {
 body {
   margin: 0;
   font-family: "Open Sans", system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top, var(--surface) 0, var(--bg) 55%, #020307 100%);
+  background: radial-gradient(circle at top, #ffffff 0, var(--bg) 60%, #efe5d2 100%);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
-
 img {
   max-width: 100%;
   display: block;
