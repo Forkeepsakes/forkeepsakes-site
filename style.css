@@ -571,4 +571,10 @@ a:hover {
   text-align: center;
   margin-top: 2rem;
   color: var(--text);
+}.dedication-close {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 700;
 }
