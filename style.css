@@ -567,4 +567,8 @@ a:hover {
   .thumb-card {
     flex-basis: 160px;
   }
+}.dedication-close {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text);
 }
