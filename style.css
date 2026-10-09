@@ -577,4 +577,14 @@ a:hover {
   margin-bottom: 0.5rem;
   color: var(--text);
   font-weight: 700;
+}/* Full-width brand banner */
+.brand-banner {
+  width: 100%;
+  background: #141817;
+}
+
+.brand-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
