@@ -1,354 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BJ0QLEBZ49');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ForKeepSakes · Always Forward</title>
+  <meta name="description"
+    content="ForKeepSakes Studios: digital art, cinematic edits, and a growing creator’s workshop. Learn, teach, do. Always Forward." />
+
+  <title>ForKeepSakes Studios · Learn, Teach, Do</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Google Fonts (optional, safe to keep or swap later) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" 
-    rel="stylesheet"
-  >
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ0QLEBZ49"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-BJ0QLEBZ49");
+  </script>
 </head>
+
 <body>
-  <div class="brand-banner">
-  <img
-    src="assets/images/fks-banner.png"
-    alt="ForKeepSakes — Always Forward"
-    fetchpriority="high"
-  />
-</div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Top Navigation -->
- <header class="site-header">
-    <div class="container nav-container">
-        
-        <div class="logo">
- <img src="ForKeepSakes_Digital_Library/website_Assets/images/logo-fks.png"
-     alt="ForKeepSakes Logo"
-     class="logo-image">
+  <!-- Approved brand banner -->
+  <div id="home" class="brand-banner">
+    <img
+      src="assets/images/fks-banner.png"
+      alt="ForKeepSakes — Always Forward"
+      fetchpriority="high"
+    />
+  </div>
 
-  <span class="logo-text">ForKeepSakes</span>
-</div>
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container navigation">
+      <a class="studio-name" href="index.html">ForKeepSakes <span>Studios</span></a>
 
-
-     
-
-  <nav class="main-nav">
-  <a href="#hero">Home</a>
-  <a href="#meaning">Meaning</a>
-  <a href="#about">About</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#frames">Frames</a>
-  <a href="#shelves">Shelves</a>
-  <a href="#premium-downloads">Premium</a>
-  <a href="#digital-library">Freebies</a>
-  <a href="#dedication">Dedication</a>
-  <a href="#contact">Contact</a>
-</nav>
-
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="#collections">Gallery</a>
+        <a href="zodiac.html">Zodiac Series</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#connect">Connect</a>
+      </nav>
     </div>
-</header>
-<!-- Hero Section -->
-<section id="hero" class="hero-section">
-  <div class="container hero-grid">
-    <div class="hero-text reveal">
-      <p class="eyebrow">Always Forward · Always ForKeepSakes</p>
-      <h1>
-        Handcrafted woodwork & digital downloads<br />
-        <span class="hero-highlight">made to keep.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Small builds, clean designs, and downloadable art — built with intention and shipped with care.
-      </p>
-      <div class="hero-actions">
-        <a href="#frames" class="btn primary">Shop Frames</a>
-        <a href="#digital-library" class="btn ghost">Free Downloads</a>
+  </header>
+
+  <main id="main">
+    <!-- Studio introduction -->
+    <section class="introduction section">
+      <div class="container intro-grid">
+        <div>
+          <p class="eyebrow">The digital creator’s workshop & gallery</p>
+          <h1>Give your imagination<br /><span>somewhere to go.</span></h1>
+          <p class="lead">
+            Explore digital art and cinematic edits. Discover the choices
+            behind the work. Build your own creative practice, one idea
+            and one new skill at a time.
+          </p>
+
+          <div class="actions">
+            <a class="button primary" href="#collections">Explore the gallery ↗</a>
+            <a class="button secondary" href="#workshop">Step into the workshop</a>
+          </div>
+        </div>
+
+        <aside class="studio-note">
+          <p class="eyebrow">The studio approach</p>
+          <h2>Learn.<br />Teach.<br /><span>Do.</span></h2>
+          <p>
+            A growing creative space for all experience levels,
+            with a welcoming starting point for beginners.
+          </p>
+          <p class="note-close">Curiosity is enough to begin.</p>
+        </aside>
       </div>
-      <p class="hero-note">
-        TikTok: <a href="https://tiktok.com/@forkeepsakesfks" target="_blank">@forkeepsakesfks</a>
-      </p>
-    </div>
+    </section>
 
-    <div class="hero-visual reveal">
-      <div class="hero-card">
-        <div class="hero-card-tag">Featured</div>
-        <h2>ForKeepSakes</h2>
-        <p>
-          Frames, shelves, and premium downloads — plus free packs in the digital library.
-        </p>
-        <a href="#meaning" class="hero-card-link">What it means →</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Gallery collections -->
+    <section id="collections" class="section collections">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Inside the gallery</p>
+            <h2>Follow the creative threads.</h2>
+          </div>
+          <p>
+            Collections of visual storytelling, each with its own
+            atmosphere and direction.
+          </p>
+        </div>
 
+        <div class="collection-grid">
+          <a class="collection-card zodiac-card" href="zodiac.html">
+            <div class="collection-art zodiac-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="orbit orbit-three"></div>
+              <span class="zodiac-symbol">♓</span>
+              <span class="art-label">The Zodiac Collection</span>
+            </div>
 
-
-<section id="meaning" class="section section-alt">
-  <div class="container reveal">
-    <h2>What ForKeepSakes Means</h2>
-    <p class="section-intro">
-      ForKeepSakes is about making things that matter — handcrafted work, creative expression, and meaningful pieces built to last. It is a reminder to keep creating, keep learning, and always move forward.
-    </p>
-
-    <div class="journey-grid">
-      <div class="journey-card">
-        <h3>Built With Intention</h3>
-        <p>
-          Every project starts with purpose. Whether it is a frame, shelf, download, or future creative piece, the goal is to make something thoughtful, useful, and real.
-        </p>
-      </div>
-      <div class="journey-card">
-        <h3>Made to Last</h3>
-        <p>
-          ForKeepSakes is rooted in the idea that the best things are worth keeping. Solid work, clean design, and meaningful details turn simple projects into something lasting.
-        </p>
-      </div>
-      <div class="journey-card">
-        <h3>Always Forward</h3>
-        <p>
-          This brand is built on progress. Learning, building, refining, and continuing one step at a time — even when the path changes — is what Always Forward means here.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="about" class="section">
-  <div class="container reveal">
-    <h2>About ForKeepSakes</h2>
-    <p class="section-intro">
-      A creative workshop, story space, and growing brand built around making things that matter.
-    </p>
-
-    <div class="card-grid">
-      <article class="card">
-        <h3>What It Is</h3>
-        <p>
-          ForKeepSakes began with woodworking and grew into something bigger — a place where handmade builds, creative experiments, digital art, and storytelling all come together under one name.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>How It’s Built</h3>
-        <p>
-          Some projects begin with wood, glue, clamps, and sawdust. Others begin with an idea, a sketch, or a visual concept waiting to take shape. Whether I am building a keepsake box, carving a new piece, designing for the website, or developing the Echo-Verse <em>(stay tuned)</em>, the goal stays the same: create something meaningful, honest, and worth holding onto.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Why It Matters</h3>
-        <p>
-          This site is where I share that process — the wins, the lessons, the experiments, and the work that keeps moving forward one step at a time. ForKeepSakes is not just about finished pieces. It is about growth, creativity, resilience, and building a life around the things that matter most.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="gallery" class="section">
-  <div class="container reveal">
-    <h2>Gallery</h2>
-    <p class="section-intro">
-      Progress shots, finished pieces, and behind-the-scenes work.
-    </p>
-
-    <div class="card-grid">
-      <article class="card"><h3>Coming Soon</h3><p>Add images as you go.</p></article>
-      <article class="card"><h3>Coming Soon</h3><p>Add images as you go.</p></article>
-      <article class="card"><h3>Coming Soon</h3><p>Add images as you go.</p></article>
-    </div>
-  </div>
-</section>
-
- 
-
- <section id="frames" class="section section-alt">
-  <div class="container reveal">
-    <h2>Frames (For Sale)</h2>
-    <p class="section-intro">
-      Handcrafted frames — clean builds, optional carved details.
-    </p>
-
-    <div class="card-grid">
-      <article class="card">
-        <h3>Classic Frames</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">Woodworking · Ready to list</p>
-      </article>
-      <article class="card">
-        <h3>Carved Accent Frames</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">Carving · Limited runs</p>
-      </article>
-      <article class="card">
-        <h3>Custom Requests</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">By request</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-  <section id="shelves" class="section">
-  <div class="container reveal">
-    <h2>Shelves (For Sale)</h2>
-    <p class="section-intro">
-      Small shelves built for real spaces — clean, functional, and good-looking.
-    </p>
-
-    <div class="card-grid">
-      <article class="card">
-        <h3>Hex Shelves</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">Signature build</p>
-      </article>
-      <article class="card">
-        <h3>Mini Knickknack Shelves</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">Small builds</p>
-      </article>
-      <article class="card">
-        <h3>Seasonal / Limited</h3>
-        <p><!-- placeholder --></p>
-        <p class="card-tag">Rotating drops</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-
- <section id="premium-downloads" class="section section-alt">
-  <div class="container shop-layout reveal">
-    <div>
-      <h2>Premium Digital Downloads (For Sale)</h2>
-      <p class="section-intro">
-        Paid downloads — prints, templates, and project-ready files.
-      </p>
-      <p>
-        Instant access items that support the work and keep everything simple.
-      </p>
-    </div>
-
-    <div class="shop-panel">
-      <p><strong>Coming soon:</strong></p>
-      <ul>
-        <li>Printable art sets</li>
-        <li>Templates & patterns</li>
-        <li>Special packs and bundles</li>
-      </ul>
-    </div>
-  </div>
-</section>
-  <!-- Free Digital Downloads -->
-<section id="digital-library" class="section">
-  <div class="container reveal">
-    <h2>Free Digital Downloads</h2>
-    <p class="section-intro">Free holiday coloring packs created by ForKeepSakes. Personal use only.</p>
-
-    <div class="thumb-strip">
-      <a
-        class="thumb-card"
-        href="ForKeepSakes_Digital_Library/Digital%20Art/Coloring%20Pages/ForKeepSakes_Christmas_Coloring_Pack_1_2025.pdf"
-        download
-      >
-        <div class="thumb-image thumb-pack1"></div>
-        <span class="thumb-label">Christmas Coloring Pack 1 (8 pages)</span>
-      </a>
-
-      <a
-        class="thumb-card"
-        href="ForKeepSakes_Digital_Library/Digital%20Art/Coloring%20Pages/ForKeepSakes_Christmas_Coloring_Pack_2_2025.pdf"
-        download
-      >
-        <div class="thumb-image thumb-pack2"></div>
-        <span class="thumb-label">Christmas Coloring Pack 2 (6 pages)</span>
-      </a>
-    </div>
-  </div>
-</section>
-<section id="dedication" class="section section-alt">
-  <div class="container reveal">
-    <h2>Dedication</h2>
-    <p class="section-intro">
-      ForKeepSakes is dedicated to the people who give this journey meaning.
-    </p>
-
-    <div class="card-grid">
-  <article class="card">
-    <h3>For Izzie</h3>
-    <p>
-      To my daughter, Izzie, whose creativity, resilience, and strength inspire me every day.
-      Watching her continue to find her path and grow stronger within herself is a constant
-      reminder of why creating things that matter is important.
-    </p>
-  </article>
-
-  <article class="card">
-    <h3>For Mike</h3>
-    <p>
-      To my stepfather Mike, one of my biggest supporters, whose encouragement and steady
-      presence have helped keep this path moving forward through every challenge.
-    </p>
-  </article>
-
-  <article class="card">
-    <h3>In Memory of My Mom</h3>
-    <p>
-      And in memory of my Mom, whose love and influence will always remain part of the
-      foundation beneath everything I build.
-    </p>
-  </article>
-</div>
-
-<p class="dedication-close">Always Forward.</p>
-<!-- Contact -->
-<section id="contact" class="section section-alt">
-  <div class="container reveal">
-    <h2>Contact</h2>
-    <p class="section-intro">
-      For inquiries, custom requests, or collaboration:
-    </p>
-
-  </div>
-</section>
-    <div class="contact-grid">
-      <div>
-        <p>
-          <strong>Email:</strong><br />
-          <a href="mailto:forkeepsakesfks@gmail.com">
-            forkeepsakesfks@gmail.com
+            <div class="collection-copy">
+              <p class="eyebrow">01 / Art · Motion · Symbolism</p>
+              <h3>The Zodiac Series <span aria-hidden="true">↗</span></h3>
+              <p>
+                A journey through the signs, interpreted through
+                digital art, movement, and sound.
+              </p>
+              <span class="collection-action">Explore the collection</span>
+            </div>
           </a>
-        </p>
 
-        <p>
-          <strong>TikTok:</strong><br />
-          <a href="https://tiktok.com/@forkeepsakesfks" target="_blank" rel="noopener">@forkeepsakesfks</a>
-        </p>
+          <article class="collection-card">
+            <div class="collection-art gallery-art" aria-hidden="true">
+              <span class="frame-shape frame-one"></span>
+              <span class="frame-shape frame-two"></span>
+              <span class="frame-shape frame-three"></span>
+              <span class="art-label">Beyond the Zodiac</span>
+            </div>
+
+            <div class="collection-copy">
+              <p class="eyebrow">02 / Fantasy · Meaning · Experiments</p>
+              <h3>Creative Explorations</h3>
+              <p>
+                Dark fantasy, unexpected creatures, meaningful stories,
+                and the creative detours between them.
+              </p>
+              <span class="collection-status">Collection in preparation</span>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> ForKeepSakes · Built one project at a time.</p>
-  </div>
-</footer>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Creator's workshop -->
+    <section id="workshop" class="section workshop">
+      <div class="container">
+        <p class="eyebrow">From inspiration to practice</p>
+        <h2>The Creator’s Workshop</h2>
+        <p class="section-intro">
+          Every finished piece begins with a question. How do I describe
+          this idea? Where should the viewer look? What gives this moment
+          its feeling? Start with one choice, then build on it.
+        </p>
+
+        <div class="workshop-grid">
+          <article class="workshop-card">
+            <span class="step-number">01</span>
+            <p class="eyebrow">Learn</p>
+            <h3>Understand the choices.</h3>
+            <p>
+              Explore prompting, composition, camera language, and
+              editing through clear explanations and small experiments.
+            </p>
+          </article>
+
+          <article class="workshop-card">
+            <span class="step-number">02</span>
+            <p class="eyebrow">Teach</p>
+            <h3>Share the process.</h3>
+            <p>
+              Make room for the attempts, adjustments, and discoveries.
+              A lesson you share may help another creator begin.
+            </p>
+          </article>
+
+          <article class="workshop-card">
+            <span class="step-number">03</span>
+            <p class="eyebrow">Do</p>
+            <h3>Make something of your own.</h3>
+            <p>
+              Practice with intention. Try a technique, watch what changes,
+              and carry that discovery into your next creation.
+            </p>
+          </article>
+        </div>
+
+        <div class="practice">
+          <div>
+            <p class="eyebrow">A small place to start</p>
+            <h3>One idea. Three creative choices.</h3>
+            <p>
+              Open a prompt below and use it to guide your next experiment.
+            </p>
+          </div>
+
+          <div class="practice-topics">
+            <details>
+              <summary>Describe what you see in your imagination.</summary>
+              <div class="topic-content">
+                <p>
+                  Choose a subject, a setting, and a material. Describe
+                  them clearly before adding lighting and framing.
+                </p>
+                <p>
+                  For example: an ancient tree in a moonlit forest,
+                  its bark formed from obsidian and woven green light.
+                </p>
+                <p>
+                  Try changing only the material. Compare how that
+                  changes the character of the image.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Decide where the viewer should look.</summary>
+              <div class="topic-content">
+                <p>
+                  Pick one focal point. Use framing, contrast, or light
+                  to bring attention to it.
+                </p>
+                <p>
+                  Compare a wide view with a close-up of the same subject.
+                  What does each version reveal?
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Give a still image a sense of movement.</summary>
+              <div class="topic-content">
+                <p>
+                  In your editor, place a position or scale keyframe
+                  at the beginning and another at the end.
+                </p>
+                <p>
+                  Try a gentle push toward the focal point. Watch it back
+                  and adjust the speed until the movement suits the scene.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio philosophy -->
+    <section class="studio-statement section">
+      <div class="container statement-grid">
+        <p class="eyebrow">Always Forward</p>
+        <div>
+          <h2>Keep creating.<br />Keep discovering.</h2>
+          <p>
+            ForKeepSakes Studios is a workshop in motion. As I learn,
+            this space grows—with new artwork, editing experiments,
+            and practical lessons to share.
+          </p>
+          <p>
+            The aim is simple: become a little more capable with
+            every creation, and help others find their own way forward.
+          </p>
+          <span class="creator-signature">Will · Creator, ForKeepSakes Studios</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section id="connect" class="section connect">
+      <div class="container connect-grid">
+        <div>
+          <p class="eyebrow">Ideas grow through connection</p>
+          <h2>Keep in touch.</h2>
+          <p>
+            Have a creative question or a collaboration idea?
+            Join the conversation.
+          </p>
+        </div>
+
+        <div class="connect-links">
+          <a href="mailto:forkeepsakesfks@gmail.com">
+            <span>Email the studio</span>
+            forkeepsakesfks@gmail.com ↗
+          </a>
+          <a
+            href="https://www.tiktok.com/@forkeepsakesfks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Follow on TikTok</span>
+            @forkeepsakesfks ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>ForKeepSakes Studios</span>
+      <span>Learn. Teach. Do.</span>
+      <a href="#home">Always Forward ↑</a>
+    </div>
+  </footer>
 </body>
 </html>
