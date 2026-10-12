@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zodiac Series · ForKeepSakes</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --charcoal: #141817;
+      --surface: #1c2320;
+      --hunter-green: #1f4d37;
+      --silver: #e2e6e3;
+      --muted: #adb8b1;
+      --highlight: #9fc7ac;
+      --border: rgba(196, 206, 202, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--charcoal);
+      color: var(--silver);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--highlight);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--highlight);
+      outline-offset: 5px;
+    }
+
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navigation [aria-current="page"] {
+      color: var(--silver);
+      border-bottom: 2px solid var(--highlight);
+    }
+
+    main {
+      width: min(1100px, calc(100% - 2rem));
+      margin: auto;
+      padding: 3.5rem 0;
+    }
+
+    .eyebrow {
+      color: var(--highlight);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .introduction {
+      max-width: 650px;
+      margin-bottom: 3rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .zodiac-post {
+      display: grid;
+      grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+      padding: 2rem;
+      background:
+        radial-gradient(circle at top right,
+          rgba(31, 77, 55, 0.25), transparent 65%),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .video-frame {
+      width: min(267px, 100%);
+      margin-inline: auto;
+      aspect-ratio: 267 / 476;
+      background: #0c100e;
+    }
+
+    .video-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .post-copy h2 {
+      margin: 0 0 1rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+
+    .post-copy p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .watch-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .zodiac-post {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+      }
+
+      main {
+        padding: 2.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html">
+    <img
+      class="banner"
+      src="assets/images/fks-banner.png"
+      alt="ForKeepSakes — Always Forward"
+      fetchpriority="high"
+    />
+  </a>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="zodiac.html" aria-current="page">Zodiac Series</a>
+  </nav>
+
+  <main>
+    <p class="eyebrow">A ForKeepSakes collection</p>
+    <h1>The Zodiac Series</h1>
+    <p class="introduction">
+      A creative journey through the twelve signs, told through
+      digital art, movement, and sound. Each edit brings a new
+      interpretation—and another step forward.
+    </p>
+
+    <!-- Pisces -->
+    <article class="zodiac-post" aria-labelledby="pisces-title">
+      <div class="video-frame">
+        <iframe
+          title="Pisces — ForKeepSakes Zodiac Series on Facebook"
+          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FForKeepSakesfks%2Fvideos%2F1411318244400752%2F&show_text=false&width=267&t=0"
+          width="267"
+          height="476"
+          scrolling="no"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="post-copy">
+        <p class="eyebrow">01 · Water · ♓</p>
+        <h2 id="pisces-title">Pisces</h2>
+        <p>
+          The first chapter of the ForKeepSakes Zodiac Series:
+          a visual exploration of intuition, imagination, and connection.
+        </p>
+        <p>
+          Two fish, one flowing journey.
+        </p>
+        <a
+          class="watch-link"
+          href="https://www.facebook.com/ForKeepSakesfks/videos/1411318244400752/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Watch on Facebook ↗</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>ForKeepSakes · Always Forward</footer>
+</body>
+</html>
